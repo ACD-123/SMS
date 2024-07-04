@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+
+import '../../constants/route_constants.dart';
 
 class WelcomeScreen1 extends StatefulWidget {
   @override
@@ -103,7 +106,7 @@ class _WelcomeScreen1State extends State<WelcomeScreen1> {
                         right: 20,
                         child: ElevatedButton(
                           onPressed: () {
-                            // Get.toNamed(RouteConstants.splashscreen);
+                            Get.offAllNamed(RouteConstants.bottomnavbar);
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: const Color(0xff2E3192),
@@ -112,7 +115,7 @@ class _WelcomeScreen1State extends State<WelcomeScreen1> {
                           child: Text(
                             "Let's start",
                             style: TextStyle(
-                                color: Color(0xffFFFFFF), fontSize: 13.sp),
+                                color: Color(0xffFFFFFF)),
                           ),
                         ),
                       ),

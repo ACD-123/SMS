@@ -1,6 +1,48 @@
-class RouteConstants{
-  static String splashscreen = '/splashscreen';
-   static String welcome1 = '/welcome1';
-   static String welcome2 = '/welcome2';
-   static String welcome3 = '/welcome3';
+class RouteConstants {
+    static String splashscreen = '/splashscreen';
+  static String welcome1 = '/welcome1';
+  static String loginscreen = '/loginscreen';
+  static String welcome2 = '/welcome2';
+  static String welcome3 = '/welcome3';
+  static String forgot = '/forgot';
+  static String forgotemailverification = '/forgotemail';
+  static String emailverificaiton = '/email';
+  static String signup = '/signup';
+  static String bottomnavbar = '/bottomnavbar';
+   static String userbottomnavbar = '/userbottomnavbar';
+  static String changepassword = '/changepassword';
+  static String sellershop = '/sellershop';
+  static String checkout = '/checkout';
+  static String feedback = '/feedback';
+  static String addnewcard = '/addnewcard';
+  static String reasonreport = '/report';
+  static String addtocart = '/addtocart';
+  static String setyourprofile = '/setyourprofile';
+  static String homeguestscreen = '/homeguestscreen';
+  static String productdetailscreen = '/productdetailscreen';
+  static String searchscreen = '/searchscreen';
+  static String categoriesscreen = '/categoriesscreen';
+  static String searchfilterscreen = '/searchfilterscreen';
+  static String myprofilescreen = '/myprofilescreen';
+  static String profilesettingscreen = '/profilesettingscreen';
+  static String changepasswordscreen = '/changepasswordscreen';
+  static String addressbookscreen = '/addressbookscreen';
+  static String addressbookscreen3 = '/addressbookscreen3';
+  static String addressbookscreen2viewmap = '/addressbookscreen2viewmap';
+  static String paymentmethodscreen = '/paymentmethodscreen';
+  static String wishlistscreen = '/wishlistscreen';
+  static String returncancellationscreen = '/returncancellationscreen';
+  static String myprofilecontactus = '/myprofilecontactus';
+  static String notificationscreens = '/notificationscreens';
+  static String settingscreen = '/settingscreen';
+  static String notificationsetting = '/notificationsetting';
+  static String settingcontactusscreen = '/settingcontactusscreen';
+  static String helpsupportscreen = '/helpsupportscreen';
+  static String helpsupportscreen2 = '/helpsupportscreen2';
+  static String chatslistscreen = '/chatslistscreen';
+  static String chatscreen = '/chatscreen';
+
+  static String addnewcardpaymentmethod = '/addnewcardpaymentmethod';
+  static String homeuserscreen = '/homeuserscreen';
+  static String almosttherescreen = '/almosttherescreen';
 }
