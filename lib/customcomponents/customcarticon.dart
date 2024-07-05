@@ -8,7 +8,7 @@ GestureDetector customcarticon({required String quantity}) {
   return GestureDetector(
     onTap: (){
       Get.toNamed(RouteConstants.addtocart);
-    },
+    }
     child: Stack(
       clipBehavior: Clip.none,
       children: [
