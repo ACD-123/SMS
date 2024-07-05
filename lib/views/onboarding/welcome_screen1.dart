@@ -174,7 +174,7 @@ class OnboardingPage extends StatelessWidget {
         Center(
           child: Image.asset(
             image,
-            height: 40.h,
+            height: 35.h,
             width: 100.w,
           ),
         ),

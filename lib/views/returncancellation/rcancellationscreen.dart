@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-
-import '../../constants/route_constants.dart';
 
 class RCancellationScreen extends StatelessWidget {
   const RCancellationScreen({super.key});
@@ -27,7 +24,7 @@ class RCancellationScreen extends StatelessWidget {
                           rcancellationproductsgridlist[index];
                       return GestureDetector(
                         onTap: () {
-                          Get.toNamed(RouteConstants.productdetailscreen);
+                          // Get.toNamed(RouteConstants.productdetailscreen);
                         },
                         child: Container(
                             

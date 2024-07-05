@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:sms/controller/homeguestcontroller.dart';
 import 'package:sms/customcomponents/custombutton.dart';
+import 'package:sms/customcomponents/customcarticon.dart';
 
 class AddNewCardPaymentMethod extends StatefulWidget {
   const AddNewCardPaymentMethod({super.key});
@@ -88,36 +89,7 @@ class _AddNewCardPaymentMethodState extends State<AddNewCardPaymentMethod> {
                 SizedBox(
                   width: 2.w,
                 ),
-                Stack(
-                  children: [
-                    Stack(
-                      clipBehavior: Clip.none,
-                      children: [
-                        Image.asset(
-                          "assets/images/carticon.png",
-                          height: 3.h,
-                        ),
-                        Positioned(
-                          top: -10.sp,
-                          right: -10.sp,
-                          child: CircleAvatar(
-                            radius: 12.sp,
-                            backgroundColor: Color(0xff1375EA),
-                            child: Center(
-                              child: Text(
-                                "2",
-                                style: TextStyle(
-                                  color: const Color(0XFFFAFAFA),
-                                  fontSize: 12.sp,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                )
+               customcarticon(quantity: '2')
               ],
             ),
           )
@@ -136,25 +108,19 @@ class _AddNewCardPaymentMethodState extends State<AddNewCardPaymentMethod> {
                   color: Color(0xff101010),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 50),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    customrowpaymentmethods(
-                      index: 0,
-                      image: 'assets/images/paymentmethodmastercardicon.png',
-                    ),
-                    customrowpaymentmethods(
-                      index: 1,
-                      image: 'assets/images/paymentmethodvisapremiumicon.png',
-                    ),
-                    customrowpaymentmethods(
-                      index: 2,
-                      image: 'assets/images/paymentmethodapplepayicon.png',
-                    ),
-                  ],
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                   customrowpaymentmethods(
+                    index: 0,
+                    image: 'assets/images/addcardpng.png',
+                  ),
+                  SizedBox(width: 20.w,),
+                 customrowpaymentmethods(
+                    index: 1,
+                    image: 'assets/images/pay3.png',
+                  ),
+                ],
               ),
               Container(
                 height: 35.h,
@@ -361,7 +327,7 @@ Padding customrowpaymentmethods({
         },
         child: Container(
           height:5.5.h,
-          width: 20.w,
+          width: 30.w,
           decoration: BoxDecoration(
               border: Border.all(
                   width: 2,

@@ -4,6 +4,7 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:sms/constants/route_constants.dart';
 import 'package:sms/customcomponents/custom_popup_dialogwhite.dart';
 import 'package:sms/customcomponents/customelevatedbutton.dart';
+import 'package:sms/customcomponents/customrowpaymentmethod.dart';
 
 class Checkout extends StatefulWidget {
   const Checkout({super.key});
@@ -22,7 +23,7 @@ void showSuccessDialogAndNavigateToLogin(context) {
 
   // Delay for 1 second
   Future.delayed(Duration(seconds: 1), () {
-    Get.toNamed(RouteConstants.addnewcard);
+    Get.offAllNamed(RouteConstants.userbottomnavbar);
   });
 }
 
@@ -47,7 +48,7 @@ class _CheckoutState extends State<Checkout> {
         title: const Padding(
           padding: EdgeInsets.only(top: 8.0),
           child: Text(
-            'Store',
+            'Checkout',
             style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 17,
@@ -61,7 +62,7 @@ class _CheckoutState extends State<Checkout> {
               // Sha/re.share("Check out my latest tutorial");
             },
             child: Container(
-              child: Image.asset('assets/images/Wishlist.png'),
+              child: Icon(Icons.favorite_outline_outlined, size: 2.5.h,),
             ),
           ),
           SizedBox(
@@ -69,12 +70,12 @@ class _CheckoutState extends State<Checkout> {
           ),
           GestureDetector(
             onTap: () {
-              // Sha/re.share("Check out my latest tutorial");
+              Get.toNamed(RouteConstants.addtocart);
             },
             child: Container(
               // height: 15, // Set the desired height here
 
-              child: Image.asset('assets/images/Cart1 (1).png'),
+              child: Image.asset('assets/images/carticon.png', height: 2.5.h,),
             ),
           ),
           const SizedBox(
@@ -101,46 +102,60 @@ class _CheckoutState extends State<Checkout> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Image.asset('assets/images/pay1.png'),
-                  // SizedBox(
-                  //   width: 1.h,
-                  // ),
-                  Image.asset('assets/images/pay2.png'),
-                  // SizedBox(
-                  //   width: 1.h,
-                  // ),
+              customrowpaymentmethods(
+                      index: 0,
+                      image: 'assets/images/addcardpng.png',
+                    ),
+                    // SizedBox(width: 10.w,),
+                   customrowpaymentmethods(
+                      index: 1,
+                      image: 'assets/images/pay3.png',
+                    ),
+                  // Image.asset('assets/images/pay1.png'),
+                  // // SizedBox(
+                  // //   width: 1.h,
+                  // // ),
+                  // Image.asset('assets/images/pay2.png'),
+                  // // SizedBox(
+                  // //   width: 1.h,
+                  // // ),
           
-                  Container(
-                      height: 40,
-                      width: MediaQuery.of(context).size.width * 0.16,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(color: Colors.grey)),
-                      child: Image.asset('assets/images/pay3.png')),
+                  // Container(
+                  //     height: 40,
+                  //     width: MediaQuery.of(context).size.width * 0.16,
+                  //     decoration: BoxDecoration(
+                  //         borderRadius: BorderRadius.circular(10),
+                  //         border: Border.all(color: Colors.grey)),
+                  //     child: Image.asset('assets/images/pay3.png')),
                   // SizedBox(
                   //   width: 1.h,
                   // ),
-                  GestureDetector(
-                    onTap: () {},
-                    child: Container(
-                      height: 3.5.h,
-                      width: 28.w,
-                      decoration: BoxDecoration(
-                          //  border: Border.all(color: Color(0xff2E3192)),
-                          borderRadius: BorderRadius.circular(20),
-                          color: Color(0xff2E3192)),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Image.asset('assets/images/plus.png'),
-                            Text("Add New Card",
-                                style: TextStyle(
-                                  fontSize: 13.sp,
-                                  color: Colors.white,
-                                )),
-                          ],
+                  Padding(
+                    padding: const EdgeInsets.only(top: 8,left: 5),
+                    child: GestureDetector(
+                      onTap: () {
+                        Get.toNamed(RouteConstants.addnewcard);
+                      },
+                      child: Container(
+                        height: 5.h,
+                        width: 28.w,
+                        decoration: BoxDecoration(
+                            //  border: Border.all(color: Color(0xff2E3192)),
+                            borderRadius: BorderRadius.circular(20),
+                            color: Color(0xff2E3192)),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Image.asset('assets/images/plus.png'),
+                              Text("Add New Card",
+                                  style: TextStyle(
+                                    fontSize: 13.sp,
+                                    color: Colors.white,
+                                  )),
+                            ],
+                          ),
                         ),
                       ),
                     ),

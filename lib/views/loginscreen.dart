@@ -108,6 +108,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: MediaQuery.of(context).size.height * 0.02,
                 ),
                 CustomTextFieldPassword(
+                      image: 'assets/images/pasword.png',
                   hintText: 'Password',
                   // hintText: '',÷÷
                   controller: loginController.passwordController,
@@ -134,6 +135,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       Row(
                         children: [
                           Checkbox(
+                           activeColor: Color(0xff1375EA),
                             value: _isChecked,
                             onChanged: (bool? value) {
                               setState(() {
@@ -195,7 +197,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 ),
                               ),
                               child: Text(
-                                "Login in",
+                                "Login",
                                 style: TextStyle(color: Colors.white),
                               )),
                         ))),

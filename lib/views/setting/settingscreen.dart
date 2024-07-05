@@ -15,7 +15,7 @@ class SettingScreen extends StatelessWidget {
         child: Column(children: [
 
           customsettingcontainer(title: "Currency", ontap: (){},subtitle: "USD"),
-          customsettingcontainer(title: "Language", ontap: (){},subtitle: "UK English"),
+          // customsettingcontainer(title: "Language", ontap: (){},subtitle: "UK English"),
           customsettingcontainer(title: "Notifications Setting", ontap: (){
 
             Get.toNamed(RouteConstants.notificationsetting);

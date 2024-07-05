@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:sms/helper/typ_defs.dart';
 
 class CustomTextFieldPassword extends StatelessWidget {
@@ -8,12 +9,14 @@ class CustomTextFieldPassword extends StatelessWidget {
     required this.fieldValidator,
     required this.controller,
     required this.hintText,
+    required this.image,
     required this.hiddenPassword,
     this.callback,
     this.prefixIcon = true, // Add showPrefixIcon parameter with default value
   }) : super(key: key);
 
   final String hintText;
+   final String image;
   final FieldValidator fieldValidator;
   final TextEditingController controller;
   final bool hiddenPassword;
@@ -52,7 +55,7 @@ class CustomTextFieldPassword extends StatelessWidget {
         hintStyle: TextStyle(color: Colors.grey[500], fontSize: 16),
         prefixIcon: Padding(
             padding: EdgeInsets.all(8.0),
-            child: Image.asset('assets/images/pasword.png')),
+            child: Image.asset(image, scale: 6.sp,)),
         suffixIcon: prefixIcon
             ? InkWell(
                 onTap: callback,

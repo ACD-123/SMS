@@ -481,10 +481,10 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                     SizedBox(
                       height: 1.h,
                     ),
-                    productdescriptiondata("Gender", "Male"),
-                    SizedBox(
-                      height: 1.h,
-                    ),
+                    // productdescriptiondata("Gender", "Male"),
+                    // SizedBox(
+                    //   height: 1.h,
+                    // ),
                     productdescriptiondata("Condition", "New"),
                     SizedBox(
                       height: 1.h,

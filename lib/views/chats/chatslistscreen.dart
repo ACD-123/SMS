@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:sms/constants/route_constants.dart';
 import 'package:sms/controller/homeguestcontroller.dart';
+import 'package:sms/customcomponents/customeprofileinfo.dart';
 
 class ChatsListScreen extends StatefulWidget {
   @override
@@ -33,33 +34,11 @@ final homeguestcontroller = Get.put(HomeGuestController(authRepo: Get.find()));
         ),
         actions: [Padding(
           padding: const EdgeInsets.only(right: 18),
-          child: Container(child: Row(children: [
-            CircleAvatar(
-              radius: 20.sp,
-                            backgroundColor: Colors.white,
-                            backgroundImage: AssetImage('assets/images/chatslistprofilepic3.png'),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 8,left: 8),
-                            child: Column(
-                              
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                      Row(
-                                        children: [
-                                          Text("Hello",style: TextStyle(color: Color(0xff2E3192),fontWeight: FontWeight.w700),),
-                                          SizedBox(width: 1.w,),
-                                          
-                                          Icon(Icons.waving_hand,color: Color(0xffFFD232),size: 17.sp,),
-                                        ],
-                                      ),
-                                      
-                                      Text("Mathew Smith",style: TextStyle(color: Color(0xff000000).withOpacity(0.7),fontWeight: FontWeight.w400
-                                      ,fontSize: 14.sp
-                                      ),),
-                            ],),
-                          )
-          ],),),
+          child:   customprofileinfo(ontap:  () {
+            Get.toNamed(RouteConstants.myprofilescreen);
+          }, profileimage: 'assets/images/chatslistprofilepic3.png', title: "Hello", name: "Mathew Smith")
+        
+        ,
         )],
       ),
       body: SingleChildScrollView(

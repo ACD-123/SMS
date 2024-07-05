@@ -28,7 +28,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(8.0),
         child: CurvedNavigationBar(
-        
+        animationDuration: const Duration(milliseconds: 500),
           backgroundColor: Color(0xff2E3192),
           items: <Widget>[
             Image.asset('assets/images/homeicon.png',color: Color(0xff2E3192),scale: 6.sp,),

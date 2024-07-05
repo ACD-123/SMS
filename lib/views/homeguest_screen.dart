@@ -244,7 +244,7 @@ class _HomeGuestScreenState extends State<HomeGuestScreen> {
                   itemCount: homeguestcontroller.hotsellproductslist.length,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisSpacing: 10,
-                      childAspectRatio: 0.7,
+                      childAspectRatio: 0.73,
                       mainAxisSpacing: 20,
                       crossAxisCount: 3),
                   itemBuilder: (context, index) {
@@ -255,13 +255,13 @@ class _HomeGuestScreenState extends State<HomeGuestScreen> {
                         Get.toNamed(RouteConstants.productdetailscreen);
                       },
                       child: Container(
-                        height: 29.h,
+                        height: 28.h,
                         width: 30.w,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Container(
-                              height: 15.h,
+                              height: 14.h,
                               width: 30.w,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(12),
@@ -275,7 +275,7 @@ class _HomeGuestScreenState extends State<HomeGuestScreen> {
                                       borderRadius: BorderRadius.circular(12),
                                       child: Image.asset(
                                         hotsellproductdata['image'],
-                                        height: 15.h,
+                                        height: 14.h,
                                         width: 30.w,
                                         fit: BoxFit.fill,
                                       ),
@@ -424,7 +424,7 @@ class _HomeGuestScreenState extends State<HomeGuestScreen> {
                   itemCount: homeguestcontroller.topsellproductslist.length,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisSpacing: 10,
-                      childAspectRatio: 0.7,
+                      childAspectRatio: 0.73,
                       mainAxisSpacing: 20,
                       crossAxisCount: 3),
                   itemBuilder: (context, index) {
@@ -435,13 +435,13 @@ class _HomeGuestScreenState extends State<HomeGuestScreen> {
                         Get.toNamed(RouteConstants.productdetailscreen);
                       },
                       child: Container(
-                        height: 29.h,
+                        height: 28.h,
                         width: 30.w,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Container(
-                              height: 15.h,
+                              height: 14.h,
                               width: 30.w,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(12),
@@ -455,7 +455,7 @@ class _HomeGuestScreenState extends State<HomeGuestScreen> {
                                       borderRadius: BorderRadius.circular(12),
                                       child: Image.asset(
                                         topsellproductdata['image'],
-                                        height: 15.h,
+                                        height: 14.h,
                                         width: 30.w,
                                         fit: BoxFit.fill,
                                       ),
@@ -590,7 +590,7 @@ class _HomeGuestScreenState extends State<HomeGuestScreen> {
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisSpacing: 10,
-                            childAspectRatio: 0.7,
+                            childAspectRatio: 0.73,
                             mainAxisSpacing: 20,
                             crossAxisCount: 3),
                     itemBuilder: (context, index) {
@@ -601,13 +601,13 @@ class _HomeGuestScreenState extends State<HomeGuestScreen> {
                           Get.toNamed(RouteConstants.productdetailscreen);
                         },
                         child: Container(
-                          height: 29.h,
+                          height: 28.h,
                           width: 30.w,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Container(
-                                height: 15.h,
+                                height: 14.h,
                                 width: 30.w,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(12),
@@ -621,7 +621,7 @@ class _HomeGuestScreenState extends State<HomeGuestScreen> {
                                         borderRadius: BorderRadius.circular(12),
                                         child: Image.asset(
                                           exploreproductsdata['image'],
-                                          height: 15.h,
+                                          height: 14.h,
                                           width: 30.w,
                                           fit: BoxFit.fill,
                                         ),
