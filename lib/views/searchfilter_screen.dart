@@ -298,40 +298,40 @@ class _SearchFilterScreenState extends State<SearchFilterScreen> {
               SizedBox(
                 height: 0.5.h,
               ),
-              Text(
-                "Condition",
-                style: TextStyle(fontSize: 17.sp, fontWeight: FontWeight.bold),
-              ),
-              SizedBox(
-                height: 1.h,
-              ),
-              Obx(() => checkbox(
-                  title: 'All',
-                  value: homeguestcontroller.searchfilterconditionall.value,
-                  onChanged: (newvalue) {
-                    homeguestcontroller
-                        .updatesearchfilterconditionall(newvalue);
-                  })),
-              Obx(() => checkbox(
-                  title: 'Brand new',
-                  value:
-                      homeguestcontroller.searchfilterconditionbrandnew.value,
-                  onChanged: (newvalue) {
-                    homeguestcontroller
-                        .updatesearchfilterconditionbrandnew(newvalue);
-                  })),
-              Obx(() => checkbox(
-                  title: 'Used',
-                  value: homeguestcontroller.searchfilterconditionUsed.value,
-                  onChanged: (newvalue) {
-                    homeguestcontroller
-                        .updatesearchfilterconditionUsed(newvalue);
-                  })),
+              // Text(
+              //   "Condition",
+              //   style: TextStyle(fontSize: 17.sp, fontWeight: FontWeight.bold),
+              // ),
+              // SizedBox(
+              //   height: 1.h,
+              // ),
+              // Obx(() => checkbox(
+              //     title: 'All',
+              //     value: homeguestcontroller.searchfilterconditionall.value,
+              //     onChanged: (newvalue) {
+              //       homeguestcontroller
+              //           .updatesearchfilterconditionall(newvalue);
+              //     })),
+              // Obx(() => checkbox(
+              //     title: 'Brand new',
+              //     value:
+              //         homeguestcontroller.searchfilterconditionbrandnew.value,
+              //     onChanged: (newvalue) {
+              //       homeguestcontroller
+              //           .updatesearchfilterconditionbrandnew(newvalue);
+              //     })),
+              // Obx(() => checkbox(
+              //     title: 'Used',
+              //     value: homeguestcontroller.searchfilterconditionUsed.value,
+              //     onChanged: (newvalue) {
+              //       homeguestcontroller
+              //           .updatesearchfilterconditionUsed(newvalue);
+              //     })),
 
-              const Divider(),
-              SizedBox(
-                height: 0.5.h,
-              ),
+              // const Divider(),
+              // SizedBox(
+              //   height: 0.5.h,
+              // ),
               Text(
                 "Delivery location",
                 style: TextStyle(fontSize: 17.sp, fontWeight: FontWeight.bold),
@@ -391,7 +391,9 @@ class _SearchFilterScreenState extends State<SearchFilterScreen> {
                 height: 2.h,
               ),
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Get.back();
+                },
                 child: Container(
                   height: 5.h,
                   decoration: BoxDecoration(
@@ -457,10 +459,9 @@ Padding checkbox({
         ),
         Checkbox(
           value: value,
-           side: BorderSide(color: Color(0xff1375EA)),
+          side: BorderSide(color: Color(0xff1375EA)),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
           onChanged: onChanged,
-
           activeColor: Color(0xff1375EA),
         ),
       ],

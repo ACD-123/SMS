@@ -33,22 +33,47 @@ class _SearchScreenState extends State<SearchScreen> {
           style: TextStyle(fontSize: 17.sp, fontWeight: FontWeight.w400),
         ),
         actions: [
-          GestureDetector(
-            onTap: () {},
-            child: Padding(
-              padding: const EdgeInsets.only(right: 20),
-              child: Container(
-                height: 4.h,
-                width: 10.w,
-                decoration: BoxDecoration(
+          Padding(
+            padding: const EdgeInsets.only(right: 20),
+            child: SizedBox(
+              height: 4.h,
+              width: 10.w,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  padding: EdgeInsets.zero,
+                  backgroundColor: const Color(0xffEEEAEA),
+                  elevation: 0,
+                  shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
-                    color: const Color(0xffEEEAEA)),
+                  ),
+                ),
+                onPressed: () {
+                  Get.toNamed(RouteConstants.notificationscreens);
+                },
                 child: Center(
                     child: Image.asset('assets/images/homenotificationicon.png',
                         scale: 1.5)),
               ),
             ),
           ),
+          // GestureDetector(
+          //   onTap: () {
+          //     Get.toNamed(RouteConstants.notificationscreens);
+          //   },
+          //   child: Padding(
+          //     padding: const EdgeInsets.only(right: 20),
+          //     child: Container(
+          //       height: 4.h,
+          //       width: 10.w,
+          //       decoration: BoxDecoration(
+          //           borderRadius: BorderRadius.circular(12),
+          //           color: const Color(0xffEEEAEA)),
+          //       child: Center(
+          //           child: Image.asset('assets/images/homenotificationicon.png',
+          //               scale: 1.5)),
+          //     ),
+          //   ),
+          // ),
         ],
       ),
       body: Padding(
@@ -63,7 +88,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 children: [
                   Container(
                     height: 4.h,
-                    width: 60.w,
+                    width: 74.w,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(9.59),
                         color: const Color(0xffEEEAEA)),
@@ -81,7 +106,7 @@ class _SearchScreenState extends State<SearchScreen> {
                               BoxConstraints(minWidth: 0, minHeight: 0),
                           border: InputBorder.none,
                           fillColor: Colors.white,
-                          contentPadding: EdgeInsets.only(bottom: 18),
+                          contentPadding: EdgeInsets.only(bottom: 12),
                           hintText: "Female Bags",
                           hintStyle: TextStyle(
                             fontSize: 13.sp,
@@ -91,21 +116,21 @@ class _SearchScreenState extends State<SearchScreen> {
                       ),
                     ),
                   ),
-                  GestureDetector(
-                    onTap: () {},
-                    child: Container(
-                      height: 4.h,
-                      width: 13.w,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(9.79),
-                          color: const Color(0xffEEEAEA)),
-                      child: Center(
-                          child: Image.asset(
-                        'assets/images/sorticon.png',
-                        scale: 1.5,
-                      )),
-                    ),
-                  ),
+                  // GestureDetector(
+                  //   onTap: () {},
+                  //   child: Container(
+                  //     height: 4.h,
+                  //     width: 13.w,
+                  //     decoration: BoxDecoration(
+                  //         borderRadius: BorderRadius.circular(9.79),
+                  //         color: const Color(0xffEEEAEA)),
+                  //     child: Center(
+                  //         child: Image.asset(
+                  //       'assets/images/sorticon.png',
+                  //       scale: 1.5,
+                  //     )),
+                  //   ),
+                  // ),
                   GestureDetector(
                     onTap: () {
                       Get.toNamed(RouteConstants.searchfilterscreen);
@@ -243,7 +268,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   itemCount: searchshowingresultgridlist.length,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisSpacing: 15,
-                      childAspectRatio: 0.85,
+                      childAspectRatio: 0.80,
                       mainAxisSpacing: 14,
                       crossAxisCount: 2),
                   itemBuilder: (context, index) {

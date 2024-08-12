@@ -25,7 +25,7 @@ class _HomeGuestScreenState extends State<HomeGuestScreen> {
             Get.toNamed(RouteConstants.loginscreen);
           },
           child: Padding(
-            padding: const EdgeInsets.only(left: 8),
+            padding: const EdgeInsets.only(left: 8, right: 250),
             child: Container(
               height: 4.h,
               width: 18.w,
@@ -41,24 +41,47 @@ class _HomeGuestScreenState extends State<HomeGuestScreen> {
           ),
         ),
         actions: [
-          GestureDetector(
-            onTap: () {
-              Get.toNamed(RouteConstants.notificationscreens);
-            },
-            child: Padding(
-              padding: const EdgeInsets.only(right: 20),
-              child: Container(
-                height: 4.h,
-                width: 10.w,
-                decoration: BoxDecoration(
+          Padding(
+            padding: const EdgeInsets.only(right: 20),
+            child: SizedBox(
+              height: 4.h,
+              width: 10.w,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  padding: EdgeInsets.zero,
+                  elevation: 0,
+                  backgroundColor: const Color(0xffEEEAEA),
+                  shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
-                    color: const Color(0xffEEEAEA)),
+                  ),
+                ),
+                onPressed: () {
+                  Get.toNamed(RouteConstants.notificationscreens);
+                },
                 child: Center(
                     child: Image.asset('assets/images/homenotificationicon.png',
                         scale: 1.5)),
               ),
             ),
           ),
+          // GestureDetector(
+          //   onTap: () {
+          //     Get.toNamed(RouteConstants.notificationscreens);
+          //   },
+          //   child: Padding(
+          //     padding: const EdgeInsets.only(right: 20),
+          //     child: Container(
+          //       height: 4.h,
+          //       width: 10.w,
+          //       decoration: BoxDecoration(
+          //           borderRadius: BorderRadius.circular(12),
+          //           color: const Color(0xffEEEAEA)),
+          //       child: Center(
+          //           child: Image.asset('assets/images/homenotificationicon.png',
+          //               scale: 1.5)),
+          //     ),
+          //   ),
+          // ),
         ],
       ),
       body: Padding(
@@ -126,7 +149,7 @@ class _HomeGuestScreenState extends State<HomeGuestScreen> {
               ),
               ImageSlideshow(
                 width: double.infinity,
-                height: 20.h,
+                height: 18.h,
                 indicatorColor: Color(0xffDB4444),
                 indicatorBackgroundColor: Color(0xffFFFFFF),
                 children: List.generate(
@@ -244,7 +267,7 @@ class _HomeGuestScreenState extends State<HomeGuestScreen> {
                   itemCount: homeguestcontroller.hotsellproductslist.length,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisSpacing: 10,
-                      childAspectRatio: 0.7,
+                      childAspectRatio: 0.62,
                       mainAxisSpacing: 20,
                       crossAxisCount: 3),
                   itemBuilder: (context, index) {
@@ -255,13 +278,13 @@ class _HomeGuestScreenState extends State<HomeGuestScreen> {
                         Get.toNamed(RouteConstants.productdetailscreen);
                       },
                       child: Container(
-                        height: 29.h,
+                        height: 100.h,
                         width: 30.w,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Container(
-                              height: 15.h,
+                              height: 14.h,
                               width: 30.w,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(12),
@@ -275,7 +298,7 @@ class _HomeGuestScreenState extends State<HomeGuestScreen> {
                                       borderRadius: BorderRadius.circular(12),
                                       child: Image.asset(
                                         hotsellproductdata['image'],
-                                        height: 15.h,
+                                        height: 14.h,
                                         width: 30.w,
                                         fit: BoxFit.fill,
                                       ),
@@ -378,9 +401,6 @@ class _HomeGuestScreenState extends State<HomeGuestScreen> {
                       ),
                     );
                   })),
-              SizedBox(
-                height: 4.h,
-              ),
               ImageSlideshow(
                   width: double.infinity,
                   height: 20.h,
@@ -424,7 +444,7 @@ class _HomeGuestScreenState extends State<HomeGuestScreen> {
                   itemCount: homeguestcontroller.topsellproductslist.length,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisSpacing: 10,
-                      childAspectRatio: 0.7,
+                      childAspectRatio: 0.62,
                       mainAxisSpacing: 20,
                       crossAxisCount: 3),
                   itemBuilder: (context, index) {
@@ -435,13 +455,13 @@ class _HomeGuestScreenState extends State<HomeGuestScreen> {
                         Get.toNamed(RouteConstants.productdetailscreen);
                       },
                       child: Container(
-                        height: 29.h,
+                        height: 28.h,
                         width: 30.w,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Container(
-                              height: 15.h,
+                              height: 14.h,
                               width: 30.w,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(12),
@@ -455,7 +475,7 @@ class _HomeGuestScreenState extends State<HomeGuestScreen> {
                                       borderRadius: BorderRadius.circular(12),
                                       child: Image.asset(
                                         topsellproductdata['image'],
-                                        height: 15.h,
+                                        height: 14.h,
                                         width: 30.w,
                                         fit: BoxFit.fill,
                                       ),
@@ -560,7 +580,7 @@ class _HomeGuestScreenState extends State<HomeGuestScreen> {
                     );
                   })),
               SizedBox(
-                height: 3.h,
+                height: 1.h,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -590,7 +610,7 @@ class _HomeGuestScreenState extends State<HomeGuestScreen> {
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisSpacing: 10,
-                            childAspectRatio: 0.7,
+                            childAspectRatio: 0.62,
                             mainAxisSpacing: 20,
                             crossAxisCount: 3),
                     itemBuilder: (context, index) {
@@ -601,13 +621,13 @@ class _HomeGuestScreenState extends State<HomeGuestScreen> {
                           Get.toNamed(RouteConstants.productdetailscreen);
                         },
                         child: Container(
-                          height: 29.h,
+                          height: 28.h,
                           width: 30.w,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Container(
-                                height: 15.h,
+                                height: 14.h,
                                 width: 30.w,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(12),
@@ -621,7 +641,7 @@ class _HomeGuestScreenState extends State<HomeGuestScreen> {
                                         borderRadius: BorderRadius.circular(12),
                                         child: Image.asset(
                                           exploreproductsdata['image'],
-                                          height: 15.h,
+                                          height: 14.h,
                                           width: 30.w,
                                           fit: BoxFit.fill,
                                         ),
@@ -708,7 +728,7 @@ class _HomeGuestScreenState extends State<HomeGuestScreen> {
                     }),
               ),
               SizedBox(
-                height: 3.h,
+                height: 1.h,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

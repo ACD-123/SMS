@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-
-import '../../constants/route_constants.dart';
 
 class ReturnScreen extends StatelessWidget {
   const ReturnScreen({super.key});
@@ -27,10 +24,10 @@ class ReturnScreen extends StatelessWidget {
                           returnproductsgridlist[index];
                       return GestureDetector(
                         onTap: () {
-                          Get.toNamed(RouteConstants.productdetailscreen);
+                          // Get.toNamed(RouteConstants.productdetailscreen);
                         },
                         child: Container(
-                                // color: Color(0xff2E3192),
+                             
                           height: 34.h,
                           width: 50.w,
                           child: Column(
@@ -138,7 +135,7 @@ List<Map<String, dynamic>> returnproductsgridlist = [
   {
     "name": "Female Handbags",
     "price": '\$260',
-    "isretuncolor":0xff84EB00,
+    "isretuncolor":0xff3BB143,
     "isretuntitle":"Returned",
     "discountprice": "\$360",
     "image": "assets/images/searchshowingresultimag8.png",
@@ -156,7 +153,7 @@ List<Map<String, dynamic>> returnproductsgridlist = [
   {
     "name": "Female Handbags",
     "price": '\$260',
-    "isretuncolor":0xff84EB00,
+    "isretuncolor":0xff3BB143,
     "isretuntitle":"Returned",
     "discountprice": "\$360",
     "image": "assets/images/searchshowingresultimag10.png",
@@ -174,7 +171,7 @@ List<Map<String, dynamic>> returnproductsgridlist = [
   {
     "name": "Female Handbags",
     "price": '\$260',
-    "isretuncolor":0xff84EB00,
+    "isretuncolor":0xff3BB143,
     "isretuntitle":"Returned",
     "discountprice": "\$360",
     "image": "assets/images/searchshowingresultimag7.png",

@@ -13,6 +13,7 @@ class AddToCart extends StatefulWidget {
 
 class _AddToCartState extends State<AddToCart> {
   int _quantity = 1;
+  int _quantity2 = 1;
 
   void _incrementQuantity() {
     setState(() {
@@ -24,6 +25,20 @@ class _AddToCartState extends State<AddToCart> {
     setState(() {
       if (_quantity > 1) {
         _quantity--;
+      }
+    });
+  }
+
+  void _incrementQuantity1() {
+    setState(() {
+      _quantity2++;
+    });
+  }
+
+  void _decrementQuantity2() {
+    setState(() {
+      if (_quantity2 > 1) {
+        _quantity2--;
       }
     });
   }
@@ -88,7 +103,7 @@ class _AddToCartState extends State<AddToCart> {
             ),
             CartData(context),
             CartData(context),
-          
+
             Padding(
               padding: const EdgeInsets.all(12.0),
               child: Container(
@@ -102,7 +117,14 @@ class _AddToCartState extends State<AddToCart> {
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [Text('Promo Code'), Text('Apply')],
+                    children: [
+                      Text('Promo Code',
+                          style: TextStyle(color: Color(0xff757474))),
+                      Text(
+                        'Apply',
+                        style: TextStyle(color: Color(0xff2E3192)),
+                      )
+                    ],
                   ),
                 ),
                 height: 50,
@@ -188,7 +210,7 @@ class _AddToCartState extends State<AddToCart> {
                       Get.offAllNamed(RouteConstants.bottomnavbar);
                     },
                     fontSize: 14,
-          
+
                     borderColor: Colors.grey,
                     width: MediaQuery.of(context).size.width * 0.4,
                     // color: const Color(0xff2E3192),
@@ -201,7 +223,7 @@ class _AddToCartState extends State<AddToCart> {
                       Get.toNamed(RouteConstants.checkout);
                     },
                     fontSize: 14,
-          
+
                     width: MediaQuery.of(context).size.width * 0.4,
                     color: const Color(0xff2E3192),
                     // gradientColors: [Color(0xFF8B2CA0), Color(0xFF00C3C9)],

@@ -1,5 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:sms/controller/storecontroller.dart';
 import 'package:sms/customcomponents/customelevatedbutton.dart';
 
 class ReportSeller extends StatefulWidget {
@@ -15,6 +19,7 @@ class _ReportSellerState extends State<ReportSeller>
   bool determinate = false;
   TextEditingController settingcontroller = TextEditingController();
   TextEditingController messagecontroller = TextEditingController();
+  final storecontroller = Get.put(StoreController(storeRepo: Get.find()));
   final String _selectedValue =
       'Report 1'; // Variable to store selected dropdown value
   final List<String> countries = [
@@ -47,6 +52,10 @@ class _ReportSellerState extends State<ReportSeller>
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0.0,
+        title: Text(
+          "Report",
+          style: TextStyle(fontSize: 17.sp, fontWeight: FontWeight.w400),
+        ),
         leading: InkWell(
             onTap: () {
               Navigator.pop(context);
@@ -73,7 +82,7 @@ class _ReportSellerState extends State<ReportSeller>
                   Padding(
                     padding: EdgeInsets.all(12.0),
                     child: Text(
-                      'Report An Issue With A video',
+                      'Report An Issue With A Image',
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
@@ -93,173 +102,195 @@ class _ReportSellerState extends State<ReportSeller>
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.03,
             ),
-            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-              const Padding(
-                padding: EdgeInsets.all(20.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Reason To Report',
-                      style: TextStyle(
-                        fontSize: 14.0,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black,
-                      ),
-                    ),
-                    SizedBox(
-                        height:
-                            8.0), // Adjust the space between text and underline
-                    DecoratedBox(
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          colors: [
-                            Colors.blue,
-                            Colors.green
-                          ], // Customize gradient colors
-                        ),
-                      ),
-                      child: SizedBox(
-                        width: 120.0, // Adjust the width of the underline
-                        height: 2.0, // Adjust the height of the underline
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(right: 3.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.grey),
-                    borderRadius:
-                        BorderRadius.circular(10.0), // Add circular border
-                  ),
-                  width: MediaQuery.of(context).size.width * 0.5,
-                  height: 50,
-                  child: TextFormField(
-                    controller: settingcontroller,
-                    onChanged: (value) {},
-                    decoration: const InputDecoration(
-                      border:
-                          InputBorder.none, // Remove default input field border
-                      hintMaxLines: 4,
-                      contentPadding:
-                          EdgeInsets.all(8.0), // Adjust text padding
+            Padding(
+               padding: EdgeInsets.all(20.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Reason To Report',
+                    style: TextStyle(
+                      fontSize: 14.0,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
                     ),
                   ),
-                ),
-              ),
-              //     Padding(
-              //       padding: EdgeInsets.only(right: 10.0),
-              //       child: Container(
-              //         height: 30,
-              //         decoration: BoxDecoration(
-              //           border: Border.all(color: Colors.grey),
-              //           borderRadius: BorderRadius.circular(10),
-              //           // Remove the Border.all property to remove the border line
-              //         ),
-              //         width: 200.0, // Set the width of the dropdown box
-              //         child: DropdownButton<String>(
-              //           // menuMaxHeight: 40,
-              //           value: _selectedValue,
-              //           onChanged: (newValue) {
-              //             setState(() {
-              //               _selectedValue = newValue!;
-              //             });
-              //           },
-              //           items: <String>[
-              //             'Report 1',
-              //             'Report 2',
-              //             'Report 3',
-              //             'Report 4'
-              //           ].map((String value) {
-              //             return DropdownMenuItem<String>(
-              //               value: value,
-              //               child: Padding(
-              //                 padding: EdgeInsets.only(
-              //                     left: 8.0), // Add space between arrow and text
-              //                 child: Text(value),
-              //               ),
-              //             );
-              //           }).toList(),
-              //           style: TextStyle(
-              //             color: Colors.black, // Text color
-              //           ),
-              //           icon: Padding(
-              //             padding: EdgeInsets.only(left: 70.0),
-              //             child: Image.asset('assets/dropdowndowngradient.png'),
-              //           ), // Customizing the dropdown arrow icon
-              //           iconSize:
-              //               30.0, // Adjust the size of the dropdown arrow icon
-              //         ),
-              //       ),
-              //     ),
-              //   ],
-              // ),
-            ]),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Padding(
-                  padding: EdgeInsets.all(20.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Your Report Request',
-                        style: TextStyle(
-                          fontSize: 14.0,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                        ),
+                  SizedBox(
+                      height:
+                          1.h), // Adjust the space between text and underline
+                  DecoratedBox(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          Colors.blue,
+                          Colors.green
+                        ], // Customize gradient colors
                       ),
-
-                      SizedBox(
-                          height:
-                              8.0), // Adjust the space between text and underline
-                      DecoratedBox(
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: [
-                              Colors.blue,
-                              Colors.green
-                            ], // Customize gradient colors
-                          ),
-                        ),
-                        child: SizedBox(
-                          width: 130.0, // Adjust the width of the underline
-                          height: 2.0, // Adjust the height of the underline
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(right: 3.0),
-                  child: Container(
+                    ),
+                    child: SizedBox(
+                      width: 120.0, // Adjust the width of the underline
+                      height: 2.0, // Adjust the height of the underline
+                    ),
+                  ), SizedBox(
+                      height:
+                          1.h), 
+                  Container(
                     decoration: BoxDecoration(
                       border: Border.all(color: Colors.grey),
-                      borderRadius:
-                          BorderRadius.circular(10.0), // Add circular border
+                      borderRadius: BorderRadius.circular(
+                          10.0), // Add circular border
                     ),
-                    width: MediaQuery.of(context).size.width * 0.5,
-                    height: 150,
+                    width: Get.width,
+                    height: 10.h,
                     child: TextFormField(
-                      controller: messagecontroller,
-                      onChanged: (value) {},
-                      decoration: const InputDecoration(
-                        border: InputBorder
-                            .none, // Remove default input field border
-                        hintMaxLines: 4,
-                        contentPadding:
-                            EdgeInsets.all(8.0), // Adjust text padding
-                      ),
+                          maxLines: 7,
+                          style: TextStyle(fontSize: 14.sp),
+                          decoration: InputDecoration(
+                            
+                           contentPadding: EdgeInsets.symmetric(horizontal: 8,vertical: 8),
+                            border: InputBorder.none,
+                            
+                            hintStyle: TextStyle(
+                              fontSize: 15.sp,
+                              color: Color(0xff474747)
+                            ),
+                          ),
+                          onSaved: (value) {},
+                        ),
+                  ),
+                ],
+              ),
+                    
+                     
+                    //     Padding(
+                    //       padding: EdgeInsets.only(right: 10.0),
+                    //       child: Container(
+                    //         height: 30,
+                    //         decoration: BoxDecoration(
+                    //           border: Border.all(color: Colors.grey),
+                    //           borderRadius: BorderRadius.circular(10),
+                    //           // Remove the Border.all property to remove the border line
+                    //         ),
+                    //         width: 200.0, // Set the width of the dropdown box
+                    //         child: DropdownButton<String>(
+                    //           // menuMaxHeight: 40,
+                    //           value: _selectedValue,
+                    //           onChanged: (newValue) {
+                    //             setState(() {
+                    //               _selectedValue = newValue!;
+                    //             });
+                    //           },
+                    //           items: <String>[
+                    //             'Report 1',
+                    //             'Report 2',
+                    //             'Report 3',
+                    //             'Report 4'
+                    //           ].map((String value) {
+                    //             return DropdownMenuItem<String>(
+                    //               value: value,
+                    //               child: Padding(
+                    //                 padding: EdgeInsets.only(
+                    //                     left: 8.0), // Add space between arrow and text
+                    //                 child: Text(value),
+                    //               ),
+                    //             );
+                    //           }).toList(),
+                    //           style: TextStyle(
+                    //             color: Colors.black, // Text color
+                    //           ),
+                    //           icon: Padding(
+                    //             padding: EdgeInsets.only(left: 70.0),
+                    //             child: Image.asset('assets/dropdowndowngradient.png'),
+                    //           ), // Customizing the dropdown arrow icon
+                    //           iconSize:
+                    //               30.0, // Adjust the size of the dropdown arrow icon
+                    //         ),
+                    //       ),
+                    //     ),
+                    //   ],
+                    // ),
+                  
+            ),
+            Padding(
+              padding: EdgeInsets.only(right: 20,left: 20,bottom: 5),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Attach Image',
+                    style: TextStyle(
+                      fontSize: 14.0,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
                     ),
                   ),
-                ),
-              ],
+
+                  SizedBox(
+                      height:
+                          1.h), // Adjust the space between text and underline
+                  DecoratedBox(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          Colors.blue,
+                          Colors.green
+                        ], // Customize gradient colors
+                      ),
+                    ),
+                    child: SizedBox(
+                      width: 130.0, // Adjust the width of the underline
+                      height: 2.0, // Adjust the height of the underline
+                    ),
+                  ),
+                  SizedBox(
+                    height: 1.5.h,
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      storecontroller
+                          .uploaduserreportsellerattachedimage(context);
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.grey),
+                        borderRadius: BorderRadius.circular(
+                            10.0), // Add circular border
+                      ),
+                      width: Get.width,
+                      height: 16.h,
+                      child: storecontroller
+                                  .userreportsellerattachedimage.value ==
+                              null
+                          ? Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Image.asset(
+                                  'assets/images/plusicon.png',
+                                  height: 7.h,
+                                ),
+                                Text(
+                                  'Upload Image',
+                                  style: TextStyle(
+                                      fontSize: 14.sp,
+                                      color: Color(0xff878787),
+                                      fontWeight: FontWeight.w500),
+                                )
+                              ],
+                            )
+                          : ClipRRect(
+                              borderRadius: BorderRadius.circular(4),
+                              child: Image.file(
+                                File(storecontroller
+                                    .userreportsellerattachedimage
+                                    .value!
+                                    .path),
+                                // fit: BoxFit.fill,
+                              )),
+                    ),
+                  ),
+                ],
+              ),
             ),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.04,

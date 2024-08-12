@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:sms/constants/route_constants.dart';
 import 'package:sms/customcomponents/custom_popup_dialogwhite.dart';
 
 class ShopExperience extends StatefulWidget {
@@ -38,6 +39,7 @@ class _ShopExperienceState extends State<ShopExperience> {
     {
       "name": "Shoes",
       "isbanner": true,
+      "isfavourite": false,
       "istoprated": "50% OFF",
       "image": 'assets/images/Copa_Sense 2.png',
       "ratings": "(65)",
@@ -47,6 +49,7 @@ class _ShopExperienceState extends State<ShopExperience> {
     {
       "name": "Gamepad",
       "isbanner": false,
+      "isfavourite": false,
       "istoprated": "Top Rated",
       "image": 'assets/images/GP11_PRD3 1.png',
       "ratings": "(65)",
@@ -56,6 +59,7 @@ class _ShopExperienceState extends State<ShopExperience> {
     {
       "name": "Jacket",
       "isbanner": false,
+      "isfavourite": false,
       "istoprated": "Top Rated",
       "image": 'assets/images/img3.png',
       "ratings": "(65)",
@@ -65,6 +69,7 @@ class _ShopExperienceState extends State<ShopExperience> {
     {
       "name": "Shoes",
       "isbanner": true,
+      "isfavourite": true,
       "istoprated": "50% OFF",
       "image": 'assets/images/Copa_Sense 2.png',
       "ratings": "(65)",
@@ -74,6 +79,7 @@ class _ShopExperienceState extends State<ShopExperience> {
     {
       "name": "Gamepad",
       "isbanner": false,
+      "isfavourite": false,
       "istoprated": "Top Rated",
       "image": 'assets/images/GP11_PRD3 1.png',
       "ratings": "(65)",
@@ -83,6 +89,7 @@ class _ShopExperienceState extends State<ShopExperience> {
     {
       "name": "Jacket",
       "isbanner": false,
+      "isfavourite": false,
       "istoprated": "Top Rated",
       "image": 'assets/images/img3.png',
       "ratings": "(65)",
@@ -92,6 +99,7 @@ class _ShopExperienceState extends State<ShopExperience> {
     {
       "name": "Shoes",
       "isbanner": true,
+      "isfavourite": false,
       "istoprated": "50% OFF",
       "image": 'assets/images/Copa_Sense 2.png',
       "ratings": "(65)",
@@ -101,6 +109,7 @@ class _ShopExperienceState extends State<ShopExperience> {
     {
       "name": "Gamepad",
       "isbanner": false,
+      "isfavourite": false,
       "istoprated": "Top Rated",
       "image": 'assets/images/GP11_PRD3 1.png',
       "ratings": "(65)",
@@ -110,6 +119,7 @@ class _ShopExperienceState extends State<ShopExperience> {
     {
       "name": "Jacket",
       "isbanner": false,
+      "isfavourite": false,
       "istoprated": "Top Rated",
       "image": 'assets/images/img3.png',
       "ratings": "(65)",
@@ -119,6 +129,7 @@ class _ShopExperienceState extends State<ShopExperience> {
     {
       "name": "Shoes",
       "isbanner": false,
+      "isfavourite": false,
       "istoprated": "Top Rated",
       "image": 'assets/images/homeexploreproduct4.png',
       "ratings": "(65)",
@@ -128,6 +139,7 @@ class _ShopExperienceState extends State<ShopExperience> {
     {
       "name": "Shoes",
       "isbanner": true,
+      "isfavourite": false,
       "istoprated": "50% OFF",
       "image": 'assets/images/Copa_Sense 2.png',
       "ratings": "(65)",
@@ -137,6 +149,7 @@ class _ShopExperienceState extends State<ShopExperience> {
     {
       "name": "Gamepad",
       "isbanner": false,
+      "isfavourite": false,
       "istoprated": "Top Rated",
       "image": 'assets/images/GP11_PRD3 1.png',
       "ratings": "(65)",
@@ -146,6 +159,7 @@ class _ShopExperienceState extends State<ShopExperience> {
     {
       "name": "Jacket",
       "isbanner": false,
+      "isfavourite": false,
       "istoprated": "Top Rated",
       "image": 'assets/images/img3.png',
       "ratings": "(65)",
@@ -176,7 +190,7 @@ class _ShopExperienceState extends State<ShopExperience> {
                 final wishlistproductsdata = wishlistproductgridlist[index];
                 return GestureDetector(
                   onTap: () {
-                    // Get.toNamed(RouteConstants.productdetailscreen);
+                    Get.toNamed(RouteConstants.productdetailscreen);
                   },
                   child: Container(
                     height: 29.h,
@@ -232,10 +246,20 @@ class _ShopExperienceState extends State<ShopExperience> {
                               Positioned(
                                 top: 8,
                                 right: 8,
-                                child: Icon(
-                                  Icons.favorite_border,
-                                  color: Colors.grey,
-                                  size: 18.sp,
+                                child: GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      wishlistproductsdata['isfavourite'] =
+                                         !wishlistproductsdata['isfavourite'];
+                                    });
+                                  },
+                                  child: Icon(
+                                    wishlistproductsdata['isfavourite'] == true
+                                        ? Icons.favorite
+                                        : Icons.favorite_border,
+                                    color: Color(0xff000000),
+                                    size: 18.sp,
+                                  ),
                                 ),
                               ),
                             ],

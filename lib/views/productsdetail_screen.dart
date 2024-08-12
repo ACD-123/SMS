@@ -42,25 +42,29 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                     ],
                   ),
                   Positioned(
-                    top: 20,
+                    top: 23,
                     left: 10,
-                    child: GestureDetector(
-                      onTap: () {
-                        Get.back();
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 10),
-                        child: Container(
-                          height: 4.h,
-                          width: 8.w,
-                          decoration: BoxDecoration(
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 10),
+                      child: SizedBox(
+                        width: 8.w,
+                        height: 4.h,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            elevation: 0,
+                            padding: EdgeInsets.zero,
+                            backgroundColor: const Color(0xffEEEAEA),
+                            shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(9.79),
-                              color: const Color(0xffEEEAEA)),
-                          child: Center(
-                              child: Icon(
+                            ),
+                          ),
+                          onPressed: () {
+                            Get.back();
+                          },
+                          child: Icon(
                             Icons.arrow_back_ios_new_sharp,
                             size: 17.sp,
-                          )),
+                          ),
                         ),
                       ),
                     ),
@@ -134,40 +138,44 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                               decoration: TextDecoration.lineThrough,
                               color: Color(0xff2E3192)),
                         ),
-                        Spacer(),
-                        Text(
-                          "+ \$4.80 Shipping from United Kingdom",
-                          style: TextStyle(
-                            fontSize: 13.sp,
-                          ),
-                        ),
+                        // Spacer(),
+                        // Text(
+                        //   "+ \$4.80 Shipping from United Kingdom",
+                        //   style: TextStyle(
+                        //     fontSize: 13.sp,
+                        //   ),
+                        // ),
                       ],
                     ),
-                    Align(
-                        alignment: Alignment.topRight,
-                        child: Text(
-                          "Save \$ 8.99 ( 40% off )",
-                          style: TextStyle(
-                              fontSize: 13.sp, color: Color(0xffEF0D0D)),
-                        )),
-                    Row(
-                      children: [
-                        Row(
-                            children: List.generate(
-                                5,
-                                (index) => Icon(
-                                      Icons.star_purple500_sharp,
-                                      color: const Color(0xffFFAD33),
-                                      size: 17.sp,
-                                    ))),
-                        SizedBox(
-                          width: 0.5.w,
-                        ),
-                        Text("(88)",
-                            style: TextStyle(
-                              fontSize: 15.sp,
-                            )),
-                      ],
+                    // Align(
+                    //     alignment: Alignment.topLeft,
+                    //     child: Text(
+                    //       "Save \$ 8.99   40% off",
+                    //       style: TextStyle(
+                    //           fontSize: 14.sp, color: Color(0xffEF0D0D)),
+                    //     )),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 10.0),
+                      child: Row(
+                        // mainAxisAlignment: MainAxisAlignment.s,
+                        children: [
+                          Row(
+                              children: List.generate(
+                                  5,
+                                  (index) => Icon(
+                                        Icons.star_purple500_sharp,
+                                        color: const Color(0xffFFAD33),
+                                        size: 17.sp,
+                                      ))),
+                          SizedBox(
+                            width: 0.5.w,
+                          ),
+                          Text("(88)",
+                              style: TextStyle(
+                                fontSize: 15.sp,
+                              )),
+                        ],
+                      ),
                     ),
                     SizedBox(
                       height: 2.h,
@@ -238,7 +246,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "Size",
+                          "Size:",
                           style: TextStyle(
                               fontSize: 16.sp,
                               fontWeight: FontWeight.w400,
@@ -309,7 +317,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "Color",
+                          "Color:",
                           style: TextStyle(
                               fontSize: 16.sp,
                               fontWeight: FontWeight.w400,
@@ -400,14 +408,6 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                           color: Color(0xff2E3192),
                                           fontWeight: FontWeight.w500),
                                     ),
-                                    Text(
-                                      "Enter your postal code for Delivery Availability",
-                                      style: TextStyle(
-                                          fontSize: 11.5.sp,
-                                          color: Color(0xff959494),
-                                          decoration: TextDecoration.underline,
-                                          decorationColor: Color(0xff959494)),
-                                    ),
                                   ],
                                 )
                               ],
@@ -435,31 +435,6 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                           color: Color(0xff2E3192),
                                           fontWeight: FontWeight.w500),
                                     ),
-                                    RichText(
-                                      text: TextSpan(
-                                        children: [
-                                          TextSpan(
-                                            text:
-                                                'Free 30 Days Delivery Returns.',
-                                            style: TextStyle(
-                                              fontSize: 11.5.sp,
-                                              color: Color(0xff959494),
-                                            ),
-                                          ),
-                                          TextSpan(
-                                            text: 'Details',
-                                            style: TextStyle(
-                                              fontSize: 11.5.sp,
-                                              color: Color(0xff959494),
-                                              decoration:
-                                                  TextDecoration.underline,
-                                              decorationColor:
-                                                  Color(0xff959494),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
                                   ],
                                 )
                               ],
@@ -478,14 +453,14 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                       height: 2.h,
                     ),
                     productdescriptiondata("Brand", "Nike"),
-                    SizedBox(
-                      height: 1.h,
-                    ),
-                    productdescriptiondata("Gender", "Male"),
-                    SizedBox(
-                      height: 1.h,
-                    ),
-                    productdescriptiondata("Condition", "New"),
+                    // SizedBox(
+                    //   height: 1.h,
+                    // ),
+                    // // productdescriptiondata("Gender", "Male"),
+                    // // SizedBox(
+                    // //   height: 1.h,
+                    // // ),
+                    // productdescriptiondata("Condition", "New"),
                     SizedBox(
                       height: 1.h,
                     ),
@@ -493,18 +468,18 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                     SizedBox(
                       height: 1.h,
                     ),
-                    Text(
-                      "See Full Description",
-                      style: TextStyle(
-                          fontSize: 16.sp,
-                          fontWeight: FontWeight.w500,
-                          decorationColor: Color(0xff959494),
-                          decoration: TextDecoration.underline,
-                          color: Color(0xff929292)),
-                    ),
-                    SizedBox(
-                      height: 3.h,
-                    ),
+                    // Text(
+                    //   "See Full Description",
+                    //   style: TextStyle(
+                    //       fontSize: 16.sp,
+                    //       fontWeight: FontWeight.w500,
+                    //       decorationColor: Color(0xff959494),
+                    //       decoration: TextDecoration.underline,
+                    //       color: Color(0xff929292)),
+                    // ),
+                    // SizedBox(
+                    //   height: 3.h,
+                    // ),
                     Divider(),
                   ],
                 ),
@@ -609,7 +584,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                         children: [
                           GestureDetector(
                             onTap: () {
-                              Get.toNamed(RouteConstants.sellershop);
+                              Get.toNamed(RouteConstants.customershop);
                             },
                             child: Container(
                               height: 5.h,
@@ -627,7 +602,9 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                             ),
                           ),
                           GestureDetector(
-                            onTap: () {},
+                            onTap: () {
+                              Get.toNamed(RouteConstants.chatscreen);
+                            },
                             child: Container(
                               height: 5.h,
                               width: 44.w,
@@ -657,8 +634,8 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
         ),
       ),
       bottomNavigationBar: GestureDetector(
-        onTap: (){
-            Get.toNamed(RouteConstants.addtocart);
+        onTap: () {
+          Get.toNamed(RouteConstants.addtocart);
         },
         child: Container(
           height: 11.h,

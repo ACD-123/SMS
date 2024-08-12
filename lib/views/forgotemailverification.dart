@@ -37,7 +37,7 @@ class _ForgotEmailverificationState extends State<ForgotEmailverification> {
 
     // Delay for 1 second
     Future.delayed(Duration(seconds: 1), () {
-      Get.toNamed(RouteConstants.signup);
+      Get.toNamed(RouteConstants.changepassword);
     });
   }
 
@@ -190,8 +190,7 @@ class _ForgotEmailverificationState extends State<ForgotEmailverification> {
 
                   textColor: Colors.white,
                   ontap: () {
-                    Get.toNamed(RouteConstants.changepassword);
-                    // showSuccessDialogAndNavigateToLogin(context);
+                    showSuccessDialogAndNavigateToLogin(context);
                     // print()
                     print('hassam verify');
                     // controller.onVerifyTapped();

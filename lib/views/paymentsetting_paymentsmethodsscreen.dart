@@ -44,6 +44,7 @@ class _PaymentSetting_PaymentMethodsScreenState
                         color: Color(0xff101010),
                       ),
                     ),
+                      
                     customrowpaymentmethods(
                       index: 0,
                         image: 'assets/images/paymentmethodmastercardicon.png',
@@ -56,7 +57,7 @@ class _PaymentSetting_PaymentMethodsScreenState
                       children: [
                         customrowpaymentmethods(index: 2,
                             image:
-                                'assets/images/paymentmethodapplepayicon.png',
+                                'assets/images/pay3.png',
                             title: 'Apple Pay'),
                         Padding(
                           padding: const EdgeInsets.only(top: 9),

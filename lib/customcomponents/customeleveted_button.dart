@@ -7,6 +7,7 @@ class CustomElevetedButton extends StatelessWidget {
     required this.buttonName,
     this.ontap,
     this.height = 50,
+    this.borderradius,
     this.width = double.maxFinite,
     this.fontSize = 18,
     this.color, // Single color
@@ -17,6 +18,7 @@ class CustomElevetedButton extends StatelessWidget {
   }) : super(key: key);
 
   final String buttonName;
+  double? borderradius;
   final ontap;
   double? height, width, fontSize;
   Color? color; // Single colorp
@@ -33,7 +35,7 @@ class CustomElevetedButton extends StatelessWidget {
       // Use a single color
       decoration = BoxDecoration(
         color: color,
-        borderRadius: BorderRadius.circular(30),
+        borderRadius: BorderRadius.circular(borderradius ?? 0),
         border: Border.all(
           color: borderColor ??
               Colors.transparent, // Use borderColor or default to transparent

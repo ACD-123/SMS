@@ -1,250 +1,473 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:share_plus/share_plus.dart';
-// import 'package:get/get.dart';
-import 'package:sms/views/aboutseller.dart';
-import 'package:sms/views/feedbackshop.dart';
-import 'package:sms/views/reportseller.dart';
-import 'package:sms/views/shop_experience.dart';
+import 'package:sms/constants/route_constants.dart';
+import 'package:sms/customcomponents/custom_popup_dialogwhite.dart';
 
 class SellerShop extends StatefulWidget {
+  SellerShop({super.key});
+
   @override
   State<SellerShop> createState() => _SellerShopState();
 }
 
 class _SellerShopState extends State<SellerShop> {
-  // final wishlistproductsdata = wishlistproductgridlist[index];
-  // final storecontroller = Get.put(StoreController(storeRepo: Get.find()));
+  TextEditingController shopproductsearchcontroller = TextEditingController();
+
+  void showSuccessDialogAndNavigateToLogin(context) {
+    Get.dialog(
+      WhiteCustomPopupDialog(
+        icon: Icons.check_circle,
+        message: 'Shop setup successful',
+        // text: 'We Hope You Enjoy Selling On Our Platform',
+      ),
+    );
+
+    // Delay for 1 second
+    Future.delayed(const Duration(seconds: 1), () {
+      // Get.back();
+      Get.toNamed(RouteConstants.sellerdashboard);
+      // Navigate to the new screen
+      // Navigator.push(
+      //   context,
+      //   MaterialPageRoute(builder: (context) => Dashboard()),
+      // );
+    });
+  }
+
+  List<Map<String, dynamic>> wishlistproductgridlist = [
+    {
+      "name": "Shoes",
+      "isbanner": true,
+      "istoprated": "50% OFF",
+      "image": 'assets/images/Copa_Sense 2.png',
+      "ratings": "(65)",
+      "price": "\$260",
+      "discountprice": "\$360"
+    },
+    {
+      "name": "Gamepad",
+      "isbanner": false,
+      "istoprated": "Top Rated",
+      "image": 'assets/images/GP11_PRD3 1.png',
+      "ratings": "(65)",
+      "price": "\$260",
+      "discountprice": "\$360"
+    },
+    {
+      "name": "Jacket",
+      "isbanner": false,
+      "istoprated": "Top Rated",
+      "image": 'assets/images/img3.png',
+      "ratings": "(65)",
+      "price": "\$260",
+      "discountprice": "\$360"
+    },
+    {
+      "name": "Shoes",
+      "isbanner": true,
+      "istoprated": "50% OFF",
+      "image": 'assets/images/Copa_Sense 2.png',
+      "ratings": "(65)",
+      "price": "\$260",
+      "discountprice": "\$360"
+    },
+    {
+      "name": "Gamepad",
+      "isbanner": false,
+      "istoprated": "Top Rated",
+      "image": 'assets/images/GP11_PRD3 1.png',
+      "ratings": "(65)",
+      "price": "\$260",
+      "discountprice": "\$360"
+    },
+    {
+      "name": "Jacket",
+      "isbanner": false,
+      "istoprated": "Top Rated",
+      "image": 'assets/images/img3.png',
+      "ratings": "(65)",
+      "price": "\$260",
+      "discountprice": "\$360"
+    },
+    {
+      "name": "Shoes",
+      "isbanner": true,
+      "istoprated": "50% OFF",
+      "image": 'assets/images/Copa_Sense 2.png',
+      "ratings": "(65)",
+      "price": "\$260",
+      "discountprice": "\$360"
+    },
+    {
+      "name": "Gamepad",
+      "isbanner": false,
+      "istoprated": "Top Rated",
+      "image": 'assets/images/GP11_PRD3 1.png',
+      "ratings": "(65)",
+      "price": "\$260",
+      "discountprice": "\$360"
+    },
+    {
+      "name": "Jacket",
+      "isbanner": false,
+      "istoprated": "Top Rated",
+      "image": 'assets/images/img3.png',
+      "ratings": "(65)",
+      "price": "\$260",
+      "discountprice": "\$360"
+    },
+    {
+      "name": "Shoes",
+      "isbanner": false,
+      "istoprated": "Top Rated",
+      "image": 'assets/images/homeexploreproduct4.png',
+      "ratings": "(65)",
+      "price": "\$260",
+      "discountprice": "\$360"
+    },
+    {
+      "name": "Shoes",
+      "isbanner": true,
+      "istoprated": "50% OFF",
+      "image": 'assets/images/Copa_Sense 2.png',
+      "ratings": "(65)",
+      "price": "\$260",
+      "discountprice": "\$360"
+    },
+    {
+      "name": "Gamepad",
+      "isbanner": false,
+      "istoprated": "Top Rated",
+      "image": 'assets/images/GP11_PRD3 1.png',
+      "ratings": "(65)",
+      "price": "\$260",
+      "discountprice": "\$360"
+    },
+    {
+      "name": "Jacket",
+      "isbanner": false,
+      "istoprated": "Top Rated",
+      "image": 'assets/images/img3.png',
+      "ratings": "(65)",
+      "price": "\$260",
+      "discountprice": "\$360"
+    },
+  ];
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0.0,
-        leading: Padding(
-          padding: const EdgeInsets.only(top: 10.0, right: 12),
-          child: GestureDetector(
-            onTap: () {
-              Navigator.pop(context);
-            },
-            child: Image.asset(
-              'assets/images/arrowback1.png',
-            ),
-          ),
-        ),
-        title: const Padding(
-          padding: EdgeInsets.only(top: 8.0),
-          child: Text(
-            'Store',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 17,
-              color: Colors.black,
-            ),
-          ),
-        ),
-        actions: [
-          GestureDetector(
-            onTap: () {
-              Share.share("Check out my latest tutorial");
-            },
-            child: Container(
-              height: 15, // Set the desired height here
-
-              child: Image.asset('assets/images/shareicon.png'),
-            ),
-          ),
-          const SizedBox(
-            width: 20,
-          ),
-        ],
-      ),
-      body: SingleChildScrollView(
+    return SingleChildScrollView(
         child: Column(
-          children: [
-            // Background image
-            Container(
-              height: MediaQuery.of(context).size.height * 0.26,
-              child: Stack(
-                children: [
-                  // Background image
-                  Container(
-                    height: 150,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage("assets/images/sellerbackimg.png"),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
+      children: [
+        SizedBox(
+          height: MediaQuery.of(context).size.height * 0.02,
+        ),
+        // Row(
+        //   mainAxisAlignment: MainAxisAlignment.spaceAround,
+        //   children: [
+        //     Container(
+        //       decoration: BoxDecoration(
+        //           color: Color(0xff1375EA),
+        //           borderRadius: BorderRadius.circular(10)),
+        //       height: 100,
+        //       // width: 50,
+        //       width: 150,
+        //       child: Column(
+        //         children: [
+        //           Padding(
+        //             padding: const EdgeInsets.all(8.0),
+        //             child: Text(
+        //               'Active Products',
+        //               style: TextStyle(fontSize: 14.0, color: Colors.white),
+        //               overflow: TextOverflow.ellipsis,
+        //               maxLines: 1,
+        //             ),
+        //           ),
+        //           Text(
+        //             '70',
+        //             style: TextStyle(fontSize: 24, color: Colors.white),
+        //           ),
+        //         ],
+        //       ),
+        //     ),
+        //     Container(
+        //       decoration: BoxDecoration(
+        //           color: Color(0xff1375EA),
+        //           borderRadius: BorderRadius.circular(10)),
+        //       height: 100,
+        //       width: 150,
+        //       // width: 50,
 
-                  // Shop Information
-                  Positioned(
-                    top: 100,
-                    left: 10,
-                    right: 10,
-                    child: Card(
-                      elevation: 1,
-                      child: Container(
-                        padding: const EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.only(bottom: 28),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
+        //       child: Column(
+        //         children: [
+        //           Padding(
+        //             padding: const EdgeInsets.all(8.0),
+        //             child: Text(
+        //               'Active Products',
+        //               style: TextStyle(fontSize: 14.0, color: Colors.white),
+        //               overflow: TextOverflow.ellipsis,
+        //               maxLines: 1,
+        //             ),
+        //           ),
+        //           Text(
+        //             '70',
+        //             style: TextStyle(fontSize: 24, color: Colors.white),
+        //           ),
+        //         ],
+        //       ),
+        //     ),
+        //   ],
+        // ),
+
+        Padding(
+            padding: const EdgeInsets.all(
+              8.0,
+            ),
+            child: GridView.builder(
+              physics: const NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              itemCount: wishlistproductgridlist.length,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisSpacing: 15,
+                  childAspectRatio: 0.68,
+                  mainAxisSpacing: 20,
+                  crossAxisCount: 3),
+              itemBuilder: (context, index) {
+                final wishlistproductsdata = wishlistproductgridlist[index];
+                return GestureDetector(
+                  onTap: () {
+                    // Get.toNamed(RouteConstants.productdetailscreen);
+                  },
+                  child: Container(
+                    height: 29.h,
+                    width: 20.w,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          height: 15.h,
+                          width: 30.w,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(12),
+                              border: Border.all(
+                                  color: const Color(0xff000000)
+                                      .withOpacity(0.2))),
+                          child: Stack(
                             children: [
-                              Image.asset(
-                                "assets/images/sellerfrontpic.png",
-                                width: 80,
-                                height: 80,
+                              Center(
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(12),
+                                  child: Image.asset(
+                                    wishlistproductsdata['image'],
+                                    height: 15.h,
+                                    width: 30.w,
+                                    // fit: BoxFit.fill,
+                                  ),
+                                ),
                               ),
-                              SizedBox(
-                                width: MediaQuery.of(context).size.width * 0.03,
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const Text(
-                                    "",
-                                    style: TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  // const SizedBox(height: 10),
-                                  Text(
-                                    "SMS Store",
-                                    style: const TextStyle(
-                                      fontSize: 14,
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: 1,
-                                  ),
-                                  Row(
-                                    children: [
-                                      Row(
-                                          children: List.generate(
-                                              5,
-                                              (index) => Icon(
-                                                    Icons.star_purple500_sharp,
-                                                    color:
-                                                        const Color(0xffFFAD33),
-                                                    size: 16.sp,
-                                                  ))),
-                                      SizedBox(
-                                        width: 0.5.w,
-                                      ),
-                                      Text('(65)',
+                              wishlistproductsdata['isbanner'] == true
+                                  ? Positioned(
+                                      top: 12,
+                                      left: 0,
+                                      child: Container(
+                                        height: 2.2.h,
+                                        width: 12.w,
+                                        decoration: const BoxDecoration(
+                                            color: Color(0xff484BA0),
+                                            borderRadius: BorderRadius.only(
+                                                topRight: Radius.circular(4.92),
+                                                bottomRight:
+                                                    Radius.circular(4.92))),
+                                        child: Center(
+                                            child: Text(
+                                          wishlistproductsdata['istoprated'],
                                           style: TextStyle(
-                                            fontSize: 16.sp,
-                                          )),
-                                      SizedBox(
-                                        width: 8.w,
+                                              color: Colors.white,
+                                              fontSize: 11.sp),
+                                        )),
                                       ),
-                                      GestureDetector(
-                                        onTap: () {
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    ReportSeller()),
-                                          );
-                                        },
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(10),
-                                              border: Border.all(
-                                                  color: Color(0xffD16363))),
-                                          width: 100,
-                                          height: 30,
-                                          child: Center(
-                                              child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceEvenly,
-                                            children: [
-                                              Text(
-                                                'Report',
-                                                style: TextStyle(
-                                                    color: Color(0xffD16363)),
-                                              ),
-                                              Image.asset(
-                                                  'assets/images/reporticon.png')
-                                            ],
-                                          )),
-                                        ),
-                                      ),
-                                    ],
+                                    )
+                                  : const SizedBox(),
+                              // Adding the heart icon
+                              Positioned(
+                                top: 8,
+                                right: 8,
+                                child: GestureDetector(
+                                  onTap: (){
+                                    setState(() {
+                                      wishlistproductgridlist.removeAt(index);
+                                    });
+                                  },
+                                  child: Icon(
+                                    Icons.clear,
+                                    color: Colors.grey,
+                                    size: 18.sp,
                                   ),
-                                  SizedBox(
-                                    height: 2.h,
-                                  ),
-                                ],
+                                ),
                               ),
+                                Positioned(
+                            bottom: 5,
+                            right: 5,
+                            child: GestureDetector(
+                              onTap: () {
+                                Get.toNamed(RouteConstants.stepper);
+                              },
+                              child: CircleAvatar(
+                                  radius: 14.sp,
+                                  backgroundColor: const Color(0xffEEEAEA),
+                                  child: Center(
+                                      child: Icon(
+                                    Icons.edit,
+                                    size: 17.sp,
+                                    color: const Color(0xff484BA0),
+                                  ))),
+                            )),
                             ],
                           ),
                         ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            // Tabs
-            DefaultTabController(
-              length: 3,
-              child: Column(
-                children: [
-                  TabBar(
-                    labelColor: const Color(0xff525c6e),
-                    unselectedLabelColor: const Color(0xffacb3bf),
-                    indicatorPadding: const EdgeInsets.all(0.0),
-                    indicatorWeight: 3.0,
-                    labelPadding: const EdgeInsets.only(left: 0.0, right: 0.0),
-                    indicator: const ShapeDecoration(
-                        shape: UnderlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Colors.transparent,
-                            width: 2,
-                            style: BorderStyle.solid,
-                          ),
+                        Text(
+                          wishlistproductsdata['name'],
+                          style: TextStyle(
+                              fontSize: 13.sp, fontWeight: FontWeight.w500),
                         ),
-                        color: Color(0xff2E3192)),
-                    tabs: <Widget>[
-                      Container(
-                        height: 40,
-                        alignment: Alignment.center,
-                        color: Colors.white,
-                        child: const Text("Shop"),
-                      ),
-                      Container(
-                        height: 40,
-                        alignment: Alignment.center,
-                        color: Colors.white,
-                        child: const Text("About"),
-                      ),
-                      Container(
-                        height: 40,
-                        alignment: Alignment.center,
-                        color: Colors.white,
-                        child: const Text("Feedback"),
-                      ),
-                    ],
-                  ),
-                  Container(
-                    height: MediaQuery.of(context).size.height * 0.55,
-                    child: TabBarView(
-                      children: [
-                        ShopExperience(),
-                        AboutSeller(),
-                        Feedbacks(),
+                        Row(
+                          children: [
+                            Text(
+                              wishlistproductsdata['price'],
+                              style: TextStyle(
+                                  fontSize: 14.sp,
+                                  color: const Color(0xff2E3192),
+                                  fontWeight: FontWeight.w500),
+                            ),
+                            SizedBox(
+                              width: 0.5.w,
+                            ),
+                            Text(wishlistproductsdata['discountprice'],
+                                style: TextStyle(
+                                    fontSize: 12.sp,
+                                    color: const Color(0xff2E3192),
+                                    decorationColor: const Color(0xff2E3192),
+                                    decoration: TextDecoration.lineThrough))
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Row(
+                                children: List.generate(
+                                    5,
+                                    (index) => Icon(
+                                          Icons.star_purple500_sharp,
+                                          color: const Color(0xffFFAD33),
+                                          size: 13.sp,
+                                        ))),
+                            SizedBox(
+                              width: 0.5.w,
+                            ),
+                            Text(wishlistproductsdata['ratings'],
+                                style: TextStyle(
+                                  fontSize: 11.sp,
+                                )),
+                          ],
+                        ),
                       ],
                     ),
                   ),
+                );
+              },
+            )),
+        // Padding(
+        //   padding: const EdgeInsets.only(bottom: 20, left: 10, right: 10),
+        //   child: custombutton(
+        //       ontap: () {
+        //         showSuccessDialogAndNavigateToLogin(context);
+        //         Get.toNamed(RouteConstants.sellerdashboard);
+        //       },
+        //       hinttext: "Finish"),
+        // ),
+      ],
+    ));
+  }
+}
+
+class ContainerWithContent extends StatefulWidget {
+  final String imagePath;
+  final String title;
+  final String text1;
+  final String text2;
+  final String text3;
+
+  ContainerWithContent({
+    required this.imagePath,
+    required this.title,
+    required this.text1,
+    required this.text2,
+    required this.text3,
+  });
+
+  @override
+  State<ContainerWithContent> createState() => _ContainerWithContentState();
+}
+
+class _ContainerWithContentState extends State<ContainerWithContent> {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 5.0),
+      child: Container(
+        height: 200,
+        width: 150,
+        margin: const EdgeInsets.all(10.0),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12),
+          color: const Color.fromARGB(255, 245, 238, 238),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Center(
+              child: Image.network(
+                widget.imagePath,
+                height: 160,
+                width: 180,
+                fit: BoxFit.fill,
+              ),
+            ), // Load your image here
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.01,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 3),
+              child: Text(widget.title, style: const TextStyle(fontSize: 10)),
+            ),
+            // SizedBox(height: MediaQuery.of(context).size.height*0.01,),
+            Padding(
+              padding: const EdgeInsets.only(left: 3),
+              child: Row(
+                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    widget.text1,
+                    style: const TextStyle(
+                        fontSize: 13, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.03,
+                  ),
+                  Text(widget.text2, style: const TextStyle(fontSize: 10)),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.02,
+                  ),
+                  // Image.asset('assets/dot.png'),
+                  // SizedBox(
+                  //   width: MediaQuery.of(context).size.width * 0.01,
+                  // ),
+                  // Text(widget.text3,
+                  //     style: TextStyle(
+                  //         fontSize: 10,
+                  //         color: Color(
+                  //           0xffEF2A2A,
+                  //         ),
+                  //         fontWeight: FontWeight.bold)),
                 ],
               ),
             ),

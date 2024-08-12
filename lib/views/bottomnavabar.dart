@@ -4,7 +4,8 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:sms/views/addtocart.dart';
 import 'package:sms/views/chats/chatslistscreen.dart';
 import 'package:sms/views/homeguest_screen.dart';
-import 'package:sms/views/sellershop.dart';
+import 'package:sms/views/seller/sellerwelcomescreen.dart';
+// import 'package:sms/views/sellersideshop.dart';
 
 class BottomNavBar extends StatefulWidget {
   @override
@@ -16,7 +17,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   final List<Widget> _pages = [
     HomeGuestScreen(),
-    SellerShop(),
+    SellerWelcomeScreen(),
     AddToCart(),
     ChatsListScreen(),
   ];
@@ -28,13 +29,30 @@ class _BottomNavBarState extends State<BottomNavBar> {
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(8.0),
         child: CurvedNavigationBar(
-        
+          animationDuration: const Duration(milliseconds: 500),
           backgroundColor: Color(0xff2E3192),
           items: <Widget>[
-            Image.asset('assets/images/homeicon.png',color: Color(0xff2E3192),scale: 6.sp,),
-            Image.asset('assets/images/sellingicon.png',color: Color(0xff2E3192),scale: 6.sp,),
-            Image.asset('assets/images/bottombarcarticon.png',color: Color(0xff2E3192),scale: 7.sp,),
-            Image.asset('assets/images/messagesicon.png',color: Color(0xff2E3192),scale: 6.sp,height: 3.h,),
+            Image.asset(
+              'assets/images/homeicon.png',
+              color: Color(0xff2E3192),
+              scale: 6.sp,
+            ),
+            Image.asset(
+              'assets/images/sellingicon.png',
+              color: Color(0xff2E3192),
+              scale: 6.sp,
+            ),
+            Image.asset(
+              'assets/images/bottombarcarticon.png',
+              color: Color(0xff2E3192),
+              scale: 7.sp,
+            ),
+            Image.asset(
+              'assets/images/messagesicon.png',
+              color: Color(0xff2E3192),
+              scale: 6.sp,
+              height: 3.h,
+            ),
           ],
           onTap: (index) {
             setState(() {

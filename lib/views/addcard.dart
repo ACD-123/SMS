@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:sms/constants/route_constants.dart';
 import 'package:sms/controller/homeguestcontroller.dart';
+import 'package:sms/customcomponents/customrowpaymentmethod.dart';
 
 import '../customcomponents/customelevatedbutton.dart';
 
@@ -86,23 +87,15 @@ class _AddNewCardState extends State<AddNewCard> {
         actions: [
           GestureDetector(
             onTap: () {
-              // Sha/re.share("Check out my latest tutorial");
-            },
-            child: Container(
-              child: Image.asset('assets/images/Wishlist.png'),
-            ),
-          ),
-          SizedBox(
-            width: 1.w,
-          ),
-          GestureDetector(
-            onTap: () {
-              // Sha/re.share("Check out my latest tutorial");
+              Get.toNamed(RouteConstants.addtocart);
             },
             child: Container(
               // height: 15, // Set the desired height here
 
-              child: Image.asset('assets/images/Cart1 (1).png'),
+              child: Image.asset(
+                'assets/images/carticon.png',
+                height: 2.5.h,
+              ),
             ),
           ),
           const SizedBox(
@@ -116,33 +109,24 @@ class _AddNewCardState extends State<AddNewCard> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Credit Card'),
-              SizedBox(
-                height: 2.h,
-              ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.asset('assets/images/pay1.png'),
-                  // SizedBox(
-                  //   width: 1.h,
-                  // ),
-                  Image.asset('assets/images/pay2.png'),
-                  // SizedBox(
-                  //   width: 1.h,
-                  // ),
-
-                  Container(
-                      height: 40,
-                      width: MediaQuery.of(context).size.width * 0.16,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(color: Colors.grey)),
-                      child: Image.asset('assets/images/pay3.png')),
+                  customrowpaymentmethods(
+                    index: 0,
+                    image: 'assets/images/addcardpng.png',
+                  ),
+                  SizedBox(
+                    width: 20.w,
+                  ),
+                  customrowpaymentmethods(
+                    index: 1,
+                    image: 'assets/images/pay3.png',
+                  ),
                 ],
               ),
               Container(
-                height: 350,
+                height: 35.h,
                 child: CardSlider(
                   cards: valuesWidget,
                   bottomOffset: .0003,
@@ -168,10 +152,10 @@ class _AddNewCardState extends State<AddNewCard> {
                   style: TextStyle(fontSize: 14.sp),
                   decoration: InputDecoration(
                     prefixIcon: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 8),
+                      padding: EdgeInsets.symmetric(horizontal: 12),
                       // Image.asset('assets/images/pay2.png'),
                       child: Image.asset(
-                        'assets/images/pay2.png',
+                        'assets/images/paymentmethodvisapremiumicon.png',
                         height: 2.h,
                       ),
                     ),
@@ -294,7 +278,7 @@ class _AddNewCardState extends State<AddNewCard> {
                     Text('Save as Draft', style: TextStyle(fontSize: 12)),
                     Checkbox(
                       // fillColor: Colors.white,
-                      checkColor: Color(0xff2E3192),
+                      checkColor: Colors.white,
                       value: isChecked,
                       onChanged: (bool? newValue) {
                         setState(() {

@@ -67,7 +67,7 @@ class _FeedBackState extends State<FeedBack> with TickerProviderStateMixin {
                         'Positive',
                       ),
                       Text(
-                        '22' ,
+                        '22',
                         style: TextStyle(
                             color: Color(
                               0xff8B2CA0,
@@ -86,7 +86,7 @@ class _FeedBackState extends State<FeedBack> with TickerProviderStateMixin {
                         'Positive',
                       ),
                       Text(
-                        '21' ,
+                        '21',
                         style: TextStyle(
                             color: Color(
                               0xff8B2CA0,
@@ -421,7 +421,7 @@ class _FeedBackState extends State<FeedBack> with TickerProviderStateMixin {
                   height: MediaQuery.of(context).size.height * 0.01,
                 ),
                 const Text(
-                  "message is goof" ,
+                  "message is goof",
                   style: TextStyle(fontSize: 10),
                 ),
                 const Divider(),

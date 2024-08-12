@@ -89,7 +89,7 @@ class ChatScreen extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(10),
+            padding: const EdgeInsets.all(20),
             child: SizedBox(
               height: 5.h,
               child: TextFormField(

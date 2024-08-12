@@ -41,6 +41,9 @@ class _WelcomeScreen1State extends State<WelcomeScreen1> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+          SizedBox(
+            height: 5.h,
+          ),
           Expanded(
             child: Stack(
               children: [
@@ -114,8 +117,7 @@ class _WelcomeScreen1State extends State<WelcomeScreen1> {
                           ),
                           child: Text(
                             "Let's start",
-                            style: TextStyle(
-                                color: Color(0xffFFFFFF)),
+                            style: TextStyle(color: Color(0xffFFFFFF)),
                           ),
                         ),
                       ),
@@ -174,7 +176,7 @@ class OnboardingPage extends StatelessWidget {
         Center(
           child: Image.asset(
             image,
-            height: 40.h,
+            height: 35.h,
             width: 100.w,
           ),
         ),

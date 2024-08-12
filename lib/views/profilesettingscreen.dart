@@ -13,7 +13,8 @@ class ProfileSettingScreen extends StatefulWidget {
 }
 
 class _ProfileSettingScreenState extends State<ProfileSettingScreen> {
-  final homeguestcontroller = Get.put(HomeGuestController(authRepo: Get.find()));
+  final homeguestcontroller =
+      Get.put(HomeGuestController(authRepo: Get.find()));
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,68 +37,79 @@ class _ProfileSettingScreenState extends State<ProfileSettingScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-           Container(
-        height: 19.h,
-        child: Stack(
-          children: [
             Container(
-              height: 14.h,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(
-                    "assets/images/myprofilebackgroundimage.png",
+              height: 19.h,
+              child: Stack(
+                children: [
+                  Container(
+                    height: 14.h,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage(
+                          "assets/images/myprofilebackgroundimage.png",
+                        ),
+                        fit: BoxFit.cover,
+                      ),
+                      color: Colors.white,
+                      borderRadius:
+                          BorderRadius.only(bottomRight: Radius.circular(65)),
+                    ),
                   ),
-                  fit: BoxFit.cover,
-                ),
-                color: Colors.white,
-                borderRadius: BorderRadius.only(bottomRight: Radius.circular(65)),
+                  Positioned(
+                    top: 3.h,
+                    left: 35.w,
+                    right: 35.w,
+                    child: GestureDetector(
+                      onTap: () {
+                        homeguestcontroller.profileuploadprofileimage(context);
+                      },
+                      child: Center(
+                        child: Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            Container(
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  border: Border.all(
+                                      color: Color(0xffFFFFFF), width: 5),
+                                ),
+                                child: Obx(
+                                  () => CircleAvatar(
+                                    radius: 32.sp,
+                                    backgroundImage: homeguestcontroller
+                                                .profilesettinguploadedprofileImage
+                                                .value !=
+                                            null
+                                        ? FileImage(homeguestcontroller
+                                            .profilesettinguploadedprofileImage
+                                            .value!)
+                                        : const AssetImage(
+                                                "assets/images/myprofileimage.png")
+                                            as ImageProvider,
+                                  ),
+                                )),
+                            Positioned(
+                              right: 5,
+                              bottom: 3,
+                              child: Container(
+                                width: 8.w,
+                                height: 6.h,
+                                decoration: BoxDecoration(
+                                  color: Color(0xff2E3192),
+                                  shape: BoxShape.circle,
+                                ),
+                                child: Image.asset(
+                                    'assets/images/myprofilecamera.png'),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
-            Positioned(
-              top: 3.h,
-              left: 35.w,
-              right: 35.w,
-              child: GestureDetector(
-                onTap: () {
-                  homeguestcontroller.profileuploadprofileimage(context);
-                },
-                child: Center(
-                  child: Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(color: Color(0xffFFFFFF), width: 5),
-                        ),
-                        child: Obx(() => CircleAvatar(
-                          radius: 32.sp,
-                          backgroundImage: homeguestcontroller.profilesettinguploadedprofileImage.value != null
-                              ? FileImage(homeguestcontroller.profilesettinguploadedprofileImage.value!)
-                              : const  AssetImage("assets/images/myprofileimage.png") as ImageProvider,
-                        ),)
-                      ),
-                      Positioned(
-                        right: 5,
-                        bottom: 3,
-                        child: Container(
-                          width: 8.w,
-                          height: 6.h,
-                          decoration: BoxDecoration(
-                            color: Color(0xff2E3192),
-                            shape: BoxShape.circle,
-                          ),
-                          child: Image.asset('assets/images/myprofilecamera.png'),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
             SizedBox(
               height: 0.5.h,
             ),
@@ -130,35 +142,36 @@ class _ProfileSettingScreenState extends State<ProfileSettingScreen> {
                     height: 1.5.h,
                   ),
                   SizedBox(
-    height: 6.h,
-    child: TextFormField(
-      style: TextStyle(
-        fontSize: 15.sp,
-        color: Colors.black,
-      ),
-      decoration: InputDecoration(
-        suffixIcon: Image.asset('assets/images/profilesettingediticon.png'),
-        fillColor: const Color(0XFFFFFFFF),
-        enabledBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: Color(0xFFDBDBDB), width: 2),
-          borderRadius: BorderRadius.circular(20),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: Color(0xFFDBDBDB), width: 2),
-          borderRadius: BorderRadius.circular(20),
-        ),
-        contentPadding: const EdgeInsets.all(15.0),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(20),
-        ),
-        hintText: "Phone Number",
-        
-        hintStyle: const TextStyle(color: Color(0xFF474747)),
-      ),
-      keyboardType: TextInputType.number,
-    ),
-  )
-                ,
+                    height: 6.h,
+                    child: TextFormField(
+                      style: TextStyle(
+                        fontSize: 15.sp,
+                        color: Colors.black,
+                      ),
+                      decoration: InputDecoration(
+                        suffixIcon: Image.asset(
+                            'assets/images/profilesettingediticon.png'),
+                        fillColor: const Color(0XFFFFFFFF),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                              color: Color(0xFFDBDBDB), width: 2),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                              color: Color(0xFFDBDBDB), width: 2),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        contentPadding: const EdgeInsets.all(15.0),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        hintText: "Phone Number",
+                        hintStyle: const TextStyle(color: Color(0xFF474747)),
+                      ),
+                      keyboardType: TextInputType.number,
+                    ),
+                  ),
                   SizedBox(
                     height: 1.5.h,
                   ),
@@ -231,8 +244,6 @@ class _ProfileSettingScreenState extends State<ProfileSettingScreen> {
     );
   }
 }
-
-
 
 ////////country dropdown list
 String? selectcountry;

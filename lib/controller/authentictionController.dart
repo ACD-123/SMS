@@ -17,12 +17,11 @@ class AuthenticationController extends GetxController {
     required this.authRepo,
   });
 
-  loginTapped() async {
- 
-  }
+  loginTapped() async {}
 
   final regloading = false.obs;
-
+  // final Rx<SellerShopDetailsFeedBackModel?> getshopdetailfeedback =
+  //     Rx<SellerShopDetailsFeedBackModel?>(null);
   final firstNameController = TextEditingController();
   final lastNameController = TextEditingController();
   final regemailController = TextEditingController();
@@ -36,6 +35,4 @@ class AuthenticationController extends GetxController {
   final TextEditingController passwordConfirmController =
       TextEditingController();
   final RxString statusmessage = ''.obs;
-
-
 }

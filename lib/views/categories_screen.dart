@@ -155,14 +155,14 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                   itemCount: searchshowingresultgridlist.length,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisSpacing: 15,
-                      childAspectRatio: 0.85,
+                      childAspectRatio: 0.80,
                       mainAxisSpacing: 14,
                       crossAxisCount: 2),
                   itemBuilder: (context, index) {
                     final showingresultgriddata =
                         searchshowingresultgridlist[index];
                     return GestureDetector(
-                      onTap: (){
+                      onTap: () {
                         Get.toNamed(RouteConstants.productdetailscreen);
                       },
                       child: Container(

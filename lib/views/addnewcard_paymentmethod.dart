@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:sms/controller/homeguestcontroller.dart';
 import 'package:sms/customcomponents/custombutton.dart';
+import 'package:sms/customcomponents/customcarticon.dart';
 
 class AddNewCardPaymentMethod extends StatefulWidget {
   const AddNewCardPaymentMethod({super.key});
@@ -68,57 +69,7 @@ class _AddNewCardPaymentMethodState extends State<AddNewCardPaymentMethod> {
           Padding(
             padding: const EdgeInsets.only(right: 18),
             child: Row(
-              children: [
-                Obx(
-                  () => GestureDetector(
-                    onTap: () {
-                      homeguestcontroller
-                          .updatepaymentmethodaddcardfavouriteicon();
-                    },
-                    child: Icon(
-                      homeguestcontroller
-                              .paymentmethodaddcardfavouriteicon.value
-                          ? Icons.favorite
-                          : Icons.favorite_border_outlined,
-                      color: Color(0xff000000),
-                      size: 18.sp,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  width: 2.w,
-                ),
-                Stack(
-                  children: [
-                    Stack(
-                      clipBehavior: Clip.none,
-                      children: [
-                        Image.asset(
-                          "assets/images/carticon.png",
-                          height: 3.h,
-                        ),
-                        Positioned(
-                          top: -10.sp,
-                          right: -10.sp,
-                          child: CircleAvatar(
-                            radius: 12.sp,
-                            backgroundColor: Color(0xff1375EA),
-                            child: Center(
-                              child: Text(
-                                "2",
-                                style: TextStyle(
-                                  color: const Color(0XFFFAFAFA),
-                                  fontSize: 12.sp,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                )
-              ],
+              children: [customcarticon(quantity: '2')],
             ),
           )
         ],
@@ -136,25 +87,21 @@ class _AddNewCardPaymentMethodState extends State<AddNewCardPaymentMethod> {
                   color: Color(0xff101010),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 50),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    customrowpaymentmethods(
-                      index: 0,
-                      image: 'assets/images/paymentmethodmastercardicon.png',
-                    ),
-                    customrowpaymentmethods(
-                      index: 1,
-                      image: 'assets/images/paymentmethodvisapremiumicon.png',
-                    ),
-                    customrowpaymentmethods(
-                      index: 2,
-                      image: 'assets/images/paymentmethodapplepayicon.png',
-                    ),
-                  ],
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  customrowpaymentmethods(
+                    index: 0,
+                    image: 'assets/images/addcardpng.png',
+                  ),
+                  SizedBox(
+                    width: 20.w,
+                  ),
+                  customrowpaymentmethods(
+                    index: 1,
+                    image: 'assets/images/pay3.png',
+                  ),
+                ],
               ),
               Container(
                 height: 35.h,
@@ -206,43 +153,43 @@ class _AddNewCardPaymentMethodState extends State<AddNewCardPaymentMethod> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Obx(() => GestureDetector(
-                      onTap: () {
-                        selectexpirydate(context);
-                      },
-                      child: Container(
-                        width: 43.w,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Color(0xffFFFFFF),
-                          border: Border.all(color: Color(0xFFDBDBDB)),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black.withOpacity(0.1),
-                              offset: Offset(0, 8.75),
-                              blurRadius: 16.53,
-                            ),
-                          ],
-                        ),
-                        child: TextFormField(
-                          enabled: false,
-                          style: TextStyle(fontSize: 14.sp),
-                          decoration: InputDecoration(
-                            contentPadding:
-                                EdgeInsets.symmetric(horizontal: 12),
-                            border: InputBorder.none,
-                            hintText: homeguestcontroller
-                                        .expirydateaddnewcardpaymentmethod
-                                        .value !=
-                                    null
-                                ? '${homeguestcontroller.expirydateaddnewcardpaymentmethod.value!.month}/${homeguestcontroller.expirydateaddnewcardpaymentmethod.value!.year}'
-                                : "Expiry Date",
-                            hintStyle: TextStyle(
-                                fontSize: 14.sp, color: Color(0xff656565)),
+                        onTap: () {
+                          selectexpirydate(context);
+                        },
+                        child: Container(
+                          width: 43.w,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Color(0xffFFFFFF),
+                            border: Border.all(color: Color(0xFFDBDBDB)),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.1),
+                                offset: Offset(0, 8.75),
+                                blurRadius: 16.53,
+                              ),
+                            ],
                           ),
-                          onSaved: (value) {},
+                          child: TextFormField(
+                            enabled: false,
+                            style: TextStyle(fontSize: 14.sp),
+                            decoration: InputDecoration(
+                              contentPadding:
+                                  EdgeInsets.symmetric(horizontal: 12),
+                              border: InputBorder.none,
+                              hintText: homeguestcontroller
+                                          .expirydateaddnewcardpaymentmethod
+                                          .value !=
+                                      null
+                                  ? '${homeguestcontroller.expirydateaddnewcardpaymentmethod.value!.month}/${homeguestcontroller.expirydateaddnewcardpaymentmethod.value!.year}'
+                                  : "Expiry Date",
+                              hintStyle: TextStyle(
+                                  fontSize: 14.sp, color: Color(0xff656565)),
+                            ),
+                            onSaved: (value) {},
+                          ),
                         ),
-                      ),
-                    )),
+                      )),
                   Container(
                     width: 43.w,
                     decoration: BoxDecoration(
@@ -315,7 +262,6 @@ class _AddNewCardPaymentMethodState extends State<AddNewCardPaymentMethod> {
                   Obx(() => Transform.scale(
                         scale: 3.sp,
                         child: Switch(
-                          
                           value: homeguestcontroller
                               .remeberthiscardforfutureordersaddnewcard.value,
                           onChanged: (newvalue) {
@@ -360,8 +306,8 @@ Padding customrowpaymentmethods({
           homeguestcontroller.updateaddnewcardpaymentmethod(index);
         },
         child: Container(
-          height:5.5.h,
-          width: 20.w,
+          height: 5.5.h,
+          width: 30.w,
           decoration: BoxDecoration(
               border: Border.all(
                   width: 2,

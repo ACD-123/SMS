@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:sms/constants/route_constants.dart';
 import 'package:sms/controller/homeguestcontroller.dart';
+import 'package:sms/customcomponents/customeprofileinfo.dart';
 
 class HomeUserScreen extends StatefulWidget {
   const HomeUserScreen({super.key});
@@ -20,65 +21,60 @@ class _HomeUserScreenState extends State<HomeUserScreen> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: GestureDetector(
-          onTap: () {
-            Get.toNamed(RouteConstants.myprofilescreen);
-          },
-          child: Padding(
-          padding: const EdgeInsets.only(right: 18),
-          child: Container(child: Row(children: [
-            CircleAvatar(
-              radius: 20.sp,
-                            backgroundColor: Colors.white,
-                            backgroundImage: AssetImage('assets/images/chatslistprofilepic3.png'),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 8,left: 8),
-                            child: Column(
-                              
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                      Row(
-                                        children: [
-                                          Text("Hello",style: TextStyle(color: Color(0xff2E3192),fontWeight: FontWeight.w700,fontSize: 16.sp),),
-                                          SizedBox(width: 1.w,),
-                                          
-                                          Icon(Icons.waving_hand,color: Color(0xffFFD232),size: 17.sp,),
-                                        ],
-                                      ),
-                                      
-                                      Text("Mathew Smith",style: TextStyle(color: Color(0xff000000).withOpacity(0.7),fontWeight: FontWeight.w400
-                                      ,fontSize: 13.sp
-                                      ),),
-                            ],),
-                          )
-          ],),),
-        ),
-        ),
-        actions: [
-          GestureDetector(
-            onTap: () {
-              Get.toNamed(RouteConstants.notificationscreens);
+        title: customprofileinfo(
+            ontap: () {
+              Get.toNamed(RouteConstants.userdashboardscreen);
             },
-            child: Padding(
-              padding: const EdgeInsets.only(right: 20),
-              child: Container(
-                height: 4.h,
-                width: 10.w,
-                decoration: BoxDecoration(
+            profileimage: 'assets/images/chatslistprofilepic3.png',
+            title: "Hello",
+            name: "Mathew Smith"),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 20),
+            child: SizedBox(
+              height: 4.h,
+              width: 10.w,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  padding: EdgeInsets.zero,
+                  backgroundColor: const Color(0xffEEEAEA),
+                  elevation: 0,
+                  shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
-                    color: const Color(0xffEEEAEA)),
+                  ),
+                ),
+                onPressed: () {
+                  Get.toNamed(RouteConstants.notificationscreens);
+                },
                 child: Center(
                     child: Image.asset('assets/images/homenotificationicon.png',
                         scale: 1.5)),
               ),
             ),
           ),
+          // GestureDetector(
+          //   onTap: () {
+          //     Get.toNamed(RouteConstants.notificationscreens);
+          //   },
+          //   child: Padding(
+          //     padding: const EdgeInsets.only(right: 20),
+          //     child: Container(
+          //       height: 4.h,
+          //       width: 10.w,
+          //       decoration: BoxDecoration(
+          //           borderRadius: BorderRadius.circular(12),
+          //           color: const Color(0xffEEEAEA)),
+          //       child: Center(
+          //           child: Image.asset('assets/images/homenotificationicon.png',
+          //               scale: 1.5)),
+          //     ),
+          //   ),
+          // ),
         ],
       ),
       body: Padding(
         padding:
-            const EdgeInsets.only(right: 20, left: 25, top: 15, bottom: 15),
+            const EdgeInsets.only(right: 20, left: 20, top: 15, bottom: 15),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -137,7 +133,7 @@ class _HomeUserScreenState extends State<HomeUserScreen> {
                 ],
               ),
               SizedBox(
-                height: 3.h,
+                height: 1.h,
               ),
               ImageSlideshow(
                 width: double.infinity,
@@ -259,7 +255,7 @@ class _HomeUserScreenState extends State<HomeUserScreen> {
                   itemCount: homeguestcontroller.hotsellproductslist.length,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisSpacing: 10,
-                      childAspectRatio: 0.7,
+                      childAspectRatio: 0.68,
                       mainAxisSpacing: 20,
                       crossAxisCount: 3),
                   itemBuilder: (context, index) {
@@ -270,13 +266,13 @@ class _HomeUserScreenState extends State<HomeUserScreen> {
                         Get.toNamed(RouteConstants.productdetailscreen);
                       },
                       child: Container(
-                        height: 29.h,
+                        height: 28.h,
                         width: 30.w,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Container(
-                              height: 15.h,
+                              height: 14.h,
                               width: 30.w,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(12),
@@ -290,7 +286,7 @@ class _HomeUserScreenState extends State<HomeUserScreen> {
                                       borderRadius: BorderRadius.circular(12),
                                       child: Image.asset(
                                         hotsellproductdata['image'],
-                                        height: 15.h,
+                                        height: 14.h,
                                         width: 30.w,
                                         fit: BoxFit.fill,
                                       ),
@@ -439,7 +435,7 @@ class _HomeUserScreenState extends State<HomeUserScreen> {
                   itemCount: homeguestcontroller.topsellproductslist.length,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisSpacing: 10,
-                      childAspectRatio: 0.7,
+                      childAspectRatio: 0.68,
                       mainAxisSpacing: 20,
                       crossAxisCount: 3),
                   itemBuilder: (context, index) {
@@ -450,13 +446,13 @@ class _HomeUserScreenState extends State<HomeUserScreen> {
                         Get.toNamed(RouteConstants.productdetailscreen);
                       },
                       child: Container(
-                        height: 29.h,
+                        height: 28.h,
                         width: 30.w,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Container(
-                              height: 15.h,
+                              height: 14.h,
                               width: 30.w,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(12),
@@ -470,7 +466,7 @@ class _HomeUserScreenState extends State<HomeUserScreen> {
                                       borderRadius: BorderRadius.circular(12),
                                       child: Image.asset(
                                         topsellproductdata['image'],
-                                        height: 15.h,
+                                        height: 14.h,
                                         width: 30.w,
                                         fit: BoxFit.fill,
                                       ),
@@ -605,7 +601,7 @@ class _HomeUserScreenState extends State<HomeUserScreen> {
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisSpacing: 10,
-                            childAspectRatio: 0.7,
+                            childAspectRatio: 0.68,
                             mainAxisSpacing: 20,
                             crossAxisCount: 3),
                     itemBuilder: (context, index) {
@@ -616,13 +612,13 @@ class _HomeUserScreenState extends State<HomeUserScreen> {
                           Get.toNamed(RouteConstants.productdetailscreen);
                         },
                         child: Container(
-                          height: 29.h,
+                          height: 28.h,
                           width: 30.w,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Container(
-                                height: 15.h,
+                                height: 14.h,
                                 width: 30.w,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(12),
@@ -636,7 +632,7 @@ class _HomeUserScreenState extends State<HomeUserScreen> {
                                         borderRadius: BorderRadius.circular(12),
                                         child: Image.asset(
                                           exploreproductsdata['image'],
-                                          height: 15.h,
+                                          height: 14.h,
                                           width: 30.w,
                                           fit: BoxFit.fill,
                                         ),

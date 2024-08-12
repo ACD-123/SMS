@@ -18,8 +18,15 @@ class _SignupState extends State<Signup> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   TextEditingController emailTextEditingContoller = TextEditingController();
-  TextEditingController passwordtextingcontroller = TextEditingController();
+  TextEditingController passwordcontroller = TextEditingController();
+  TextEditingController confirmpasswordcontroller = TextEditingController();
   TextEditingController phonnumbercontroller = TextEditingController();
+  TextEditingController fullnamecontroller = TextEditingController();
+  TextEditingController countryregioncontroller = TextEditingController();
+  TextEditingController stateprovincecontroller = TextEditingController();
+  TextEditingController citycontroller = TextEditingController();
+  TextEditingController zipcodecontroller = TextEditingController();
+  TextEditingController streetaddrescontroller = TextEditingController();
   final isObsCure = true.obs;
   @override
   Widget build(BuildContext context) {
@@ -70,15 +77,27 @@ class _SignupState extends State<Signup> {
                   const Center(
                     child: Text(
                       'Enter you detail below',
-                      style: TextStyle(fontSize: 12),
+                      style: TextStyle(color: Colors.grey, fontSize: 12),
                     ),
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.06),
                   EmailCustomTextField(
+                    editingController: fullnamecontroller,
+                    validator: (v) {
+                      if (v!.isEmpty) {
+                        return 'Full Name can\'t be empty';
+                      }
+                      return null;
+                    },
+                    hintText: 'Full Name',
+                    image: 'assets/images/fullnameicon.png',
+                  ),
+
+                  EmailCustomTextField(
                     editingController: emailTextEditingContoller,
                     validator: (v) {
                       if (v!.isEmpty) {
-                        return 'Email cant be empty';
+                        return 'Email can\'t be empty';
                       } else if (!v.isEmail) {
                         return 'Invalid Email';
                       }
@@ -88,25 +107,23 @@ class _SignupState extends State<Signup> {
                     hintText: 'Email Address',
                     image: 'assets/images/emailiconlogin.png',
                   ),
-                  CustomTextFieldPassword(
-                    hintText: 'Password',
-                    controller: phonnumbercontroller,
-                    callback: () {
-                      isObsCure.value = isObsCure.value;
-                    },
-                    fieldValidator: (v) {
+                  EmailCustomTextField(
+                    editingController: phonnumbercontroller,
+                    validator: (v) {
                       if (v!.isEmpty) {
-                        return 'Password cant be empty';
+                        return 'Phone Number can\'t be empty';
                       }
                       return null;
                     },
-                    hiddenPassword: isObsCure.value,
+                    hintText: 'Phone Number',
+                    image: 'assets/images/phonenumbericon.png',
                   ),
                   CustomTextFieldPassword(
-                    hintText: 'Confirm Password',
-                    controller: passwordtextingcontroller,
+                    image: 'assets/images/pasword.png',
+                    hintText: 'Password',
+                    controller: passwordcontroller,
                     callback: () {
-                      isObsCure.value = !isObsCure.value;
+                      isObsCure.value = isObsCure.value;
                     },
                     fieldValidator: (v) {
                       if (v!.isEmpty) {
@@ -115,87 +132,83 @@ class _SignupState extends State<Signup> {
                       return null;
                     },
                     hiddenPassword: isObsCure.value,
-                    prefixIcon: true, // Show prefix icon
                   ),
                   CustomTextFieldPassword(
-                    hintText: 'Country or Region',
-                    controller: passwordtextingcontroller,
+                    image: 'assets/images/pasword.png',
+                    hintText: 'Confirm Password',
+                    controller: confirmpasswordcontroller,
                     callback: () {
                       isObsCure.value = !isObsCure.value;
                     },
                     fieldValidator: (v) {
                       if (v!.isEmpty) {
-                        return 'Country or Region can\'t be empty';
+                        return 'Confirm Password can\'t be empty';
                       }
                       return null;
                     },
                     hiddenPassword: isObsCure.value,
-                    prefixIcon: false, // Hide prefix icon
+                    prefixIcon: true, // Show prefix icon
                   ),
-                  CustomTextFieldPassword(
-                    prefixIcon: false,
-                    hintText: 'State/Province',
-                    // hinttext: 'Confirm Password',
-                    controller: passwordtextingcontroller,
-                    callback: () {
-                      isObsCure.value = isObsCure.value;
-                    },
-                    fieldValidator: (v) {
+                  EmailCustomTextField(
+                    editingController: streetaddrescontroller,
+                    validator: (v) {
                       if (v!.isEmpty) {
-                        return 'Password cant be empty';
+                        return 'Street Address can\'t be empty';
                       }
+
                       return null;
                     },
-                    hiddenPassword: isObsCure.value,
-                  ),
-                  CustomTextFieldPassword(
-                    prefixIcon: false,
-                    hintText: 'City',
-                    // hinttext: 'Confirm Password',
-                    controller: passwordtextingcontroller,
-                    callback: () {
-                      isObsCure.value = isObsCure.value;
-                    },
-                    fieldValidator: (v) {
-                      if (v!.isEmpty) {
-                        return 'Password cant be empty';
-                      }
-                      return null;
-                    },
-                    hiddenPassword: isObsCure.value,
-                  ),
-                  CustomTextFieldPassword(
-                    prefixIcon: false,
-                    hintText: 'Zip Code',
-                    // hinttext: 'Confirm Password',
-                    controller: passwordtextingcontroller,
-                    callback: () {
-                      isObsCure.value = isObsCure.value;
-                    },
-                    fieldValidator: (v) {
-                      if (v!.isEmpty) {
-                        return 'Password cant be empty';
-                      }
-                      return null;
-                    },
-                    hiddenPassword: isObsCure.value,
-                  ),
-                  CustomTextFieldPassword(
-                    prefixIcon: false,
                     hintText: 'Street Address',
-                    // hinttext: 'Confirm Password',
-                    controller: passwordtextingcontroller,
-                    callback: () {
-                      isObsCure.value = isObsCure.value;
-                    },
-                    fieldValidator: (v) {
+                    image: 'assets/images/streetaddresicon.png',
+                  ),
+                  EmailCustomTextField(
+                      editingController: countryregioncontroller,
+                      validator: (v) {
+                        if (v!.isEmpty) {
+                          return 'Country or Region can\'t be empty';
+                        }
+
+                        return null;
+                      },
+                      hintText: 'Country or Region',
+                      image: 'assets/images/countryregionicon.png'),
+                  EmailCustomTextField(
+                    editingController: stateprovincecontroller,
+                    validator: (v) {
                       if (v!.isEmpty) {
-                        return 'Password cant be empty';
+                        return 'State/Province can\'t be empty';
                       }
+
                       return null;
                     },
-                    hiddenPassword: isObsCure.value,
+                    hintText: 'State/Province',
+                    image: 'assets/images/stateprovineicon.png',
                   ),
+                  EmailCustomTextField(
+                    editingController: citycontroller,
+                    validator: (v) {
+                      if (v!.isEmpty) {
+                        return 'City cant be empty';
+                      }
+
+                      return null;
+                    },
+                    hintText: 'City',
+                    image: 'assets/images/cityicon.png',
+                  ),
+                  EmailCustomTextField(
+                    editingController: zipcodecontroller,
+                    validator: (v) {
+                      if (v!.isEmpty) {
+                        return 'Zip Code can\'t be empty';
+                      }
+
+                      return null;
+                    },
+                    hintText: 'Zip Code',
+                    image: 'assets/images/zipcodeicon.png',
+                  ),
+
                   const SizedBox(
                     height: 35,
                   ),
@@ -219,7 +232,7 @@ class _SignupState extends State<Signup> {
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.02,
                   ),
-                  const Center(child: Text('Continue With')),
+                  // const Center(child: Text('Continue With')),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                   Center(
                     child: ElevetedButton(
@@ -244,7 +257,7 @@ class _SignupState extends State<Signup> {
                   ),
                   Center(
                     child: ElevetedButton(
-                      buttonName: 'Login With Email',
+                      buttonName: 'Login With Google',
                       textColor: Colors.black,
                       ontap: () async {
                         Navigator.push(

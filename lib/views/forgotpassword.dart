@@ -73,7 +73,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreens> {
                   validator: (v) {
                     if (v!.isEmpty) {
                       return 'Email cant be empty';
-                    } 
+                    }
                     // else if (!v.isEmail) {
                     //   return 'Invalid Email';
                     // }

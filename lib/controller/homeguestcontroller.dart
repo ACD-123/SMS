@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:sms/constants/route_constants.dart';
 import 'package:sms/repositries/authenication_repo.dart';
 import 'package:sms/views/chats/chatslistscreen.dart';
 
@@ -287,17 +288,18 @@ class HomeGuestController extends GetxController {
   void updatesearchfilterconditionall(bool? newValue) {
     searchfilterconditionall.value = newValue!;
   }
+
 // brandnew condition
   RxBool searchfilterconditionbrandnew = false.obs;
   void updatesearchfilterconditionbrandnew(bool? newValue) {
     searchfilterconditionbrandnew.value = newValue!;
   }
+
 // Used condition
   RxBool searchfilterconditionUsed = false.obs;
   void updatesearchfilterconditionUsed(bool? newValue) {
     searchfilterconditionUsed.value = newValue!;
   }
-
 
 ////search filter deliverylocation check box logic
 // worldwide condition
@@ -305,31 +307,37 @@ class HomeGuestController extends GetxController {
   void updatesearchfilterdeliverylocationworldwide(bool? newValue) {
     searchfilterdeliverylocationworldwide.value = newValue!;
   }
+
 // Asia condition
   RxBool searchfilterdeliverylocationAsia = false.obs;
   void updatesearchfilterdeliverylocationAsia(bool? newValue) {
     searchfilterdeliverylocationAsia.value = newValue!;
   }
+
 // Europe condition
   RxBool searchfilterdeliverylocationEurope = false.obs;
   void updatesearchfilterdeliverylocationEurope(bool? newValue) {
     searchfilterdeliverylocationEurope.value = newValue!;
   }
+
   // America condition
   RxBool searchfilterconditionAmerica = false.obs;
   void updatesearchfilterdeliverylocationAmerica(bool? newValue) {
     searchfilterconditionAmerica.value = newValue!;
   }
+
   // Africa condition
   RxBool searchfilterdeliverylocationAfrica = false.obs;
   void updatesearchfilterdeliverylocationAfrica(bool? newValue) {
     searchfilterdeliverylocationAfrica.value = newValue!;
   }
+
   // Oceana condition
   RxBool searchfilterdeliverylocationOceana = false.obs;
   void updatesearchfilterdeliverylocationOceana(bool? newValue) {
     searchfilterdeliverylocationOceana.value = newValue!;
   }
+
   ///////////search filter price range
   Rx<RangeValues> currentRangeValues = RangeValues(0, 0).obs;
 
@@ -337,37 +345,26 @@ class HomeGuestController extends GetxController {
     currentRangeValues.value = values;
   }
 
-
-
-
-
   ///////addressbook checkboxlogic
 
-   var addressbookselectaddresscheckbox = (-1).obs;
+  var addressbookselectaddresscheckbox = (-1).obs;
 
   void updateaddressbookselectaddresscheckbox(int index) {
     if (addressbookselectaddresscheckbox.value == index) {
-      addressbookselectaddresscheckbox.value = -1; 
+      addressbookselectaddresscheckbox.value = -1;
     } else {
       addressbookselectaddresscheckbox.value = index;
     }
   }
 
-
-
-
-
-
-
-
   ////////////profile setting upload profile image
-    var profilesettinguploadedprofileImage = Rx<File?>(null);
+  var profilesettinguploadedprofileImage = Rx<File?>(null);
 
   void profilesettingsetprofileImage(File? image) {
     profilesettinguploadedprofileImage.value = image;
   }
 
-   Future<void> profileuploadprofileimage(BuildContext context) async {
+  Future<void> profileuploadprofileimage(BuildContext context) async {
     final picker = ImagePicker();
     final pickedImage = await showDialog<ImageSource>(
       context: context,
@@ -404,10 +401,6 @@ class HomeGuestController extends GetxController {
     }
   }
 
-
-
-
-
   ///////////address book screeen3 add new addrs slect adres type container logic
   var addnewaddresselecradrestype = 0.obs;
 
@@ -415,99 +408,106 @@ class HomeGuestController extends GetxController {
     addnewaddresselecradrestype.value = index;
   }
 
-
-
-
   //////////payment setting choose payment method container color logic
-   var choosepaymentmethod = 0.obs;
+  var choosepaymentmethod = 0.obs;
 
   void updatechoosepaymentmethod(int index) {
     choosepaymentmethod.value = index;
   }
 
-
   ////////////notifications setting switch buttons logic
 /////////// notificationsettingswitchmessagereceived  buttons logic
-  RxBool notificationsettingswitchmessagereceived = false.obs; 
-    void updatenotificationsettingswitchmessagereceivedbutton(bool? newValue) {
+  RxBool notificationsettingswitchmessagereceived = false.obs;
+  void updatenotificationsettingswitchmessagereceivedbutton(bool? newValue) {
     notificationsettingswitchmessagereceived.value = newValue!;
   }
+
 /////////// notificationsettingswitchAllorders  buttons logic
-  RxBool notificationsettingswitchAllorders = false.obs; 
-    void updatenotificationsettingswitchAllorders(bool? newValue) {
+  RxBool notificationsettingswitchAllorders = false.obs;
+  void updatenotificationsettingswitchAllorders(bool? newValue) {
     notificationsettingswitchAllorders.value = newValue!;
   }
 
   /////////// notificationsettingswitcPromotional  buttons logic
-  RxBool notificationsettingswitcPromotional = false.obs; 
-    void updatenotificationsettingswitcPromotional(bool? newValue) {
+  RxBool notificationsettingswitcPromotional = false.obs;
+  void updatenotificationsettingswitcPromotional(bool? newValue) {
     notificationsettingswitcPromotional.value = newValue!;
   }
-    /////////// notificationsettingswitchPopup  buttons logic
-  RxBool notificationsettingswitchPopup = false.obs; 
-    void updatenotificationsettingswitchPopup(bool? newValue) {
+
+  /////////// notificationsettingswitchPopup  buttons logic
+  RxBool notificationsettingswitchPopup = false.obs;
+  void updatenotificationsettingswitchPopup(bool? newValue) {
     notificationsettingswitchPopup.value = newValue!;
   }
 
-      /////////// notificationsettingswitchChats  buttons logic
-  RxBool notificationsettingswitchChats = false.obs; 
-    void updatenotificationsettingswitchChats(bool? newValue) {
+  /////////// notificationsettingswitchChats  buttons logic
+  RxBool notificationsettingswitchChats = false.obs;
+  void updatenotificationsettingswitchChats(bool? newValue) {
     notificationsettingswitchChats.value = newValue!;
   }
 
-
- /////////////SETTING CONTACT US favourite icon logic
- RxBool settingcontactusfavouriteicon = false.obs; 
-    void updatesettingcontactusfavouriteicon() {
+  /////////////SETTING CONTACT US favourite icon logic
+  RxBool settingcontactusfavouriteicon = false.obs;
+  void updatesettingcontactusfavouriteicon() {
     settingcontactusfavouriteicon.value = !settingcontactusfavouriteicon.value;
   }
-
 
   ////////////////chats list remove logic
   ////chatslist
   RxList<ChatsList> chatslist = [
     ChatsList(
       userName: 'John doe',
-      userDescription: 'Buyers are more likely to purchase more of the same........',
+      userDescription:
+          'Buyers are more likely to purchase more of the same........',
       time: '9:38 am',
       imageUrl: 'assets/images/chatslistprofilepic1.png',
     ),
     ChatsList(
       userName: 'John doe',
-      userDescription: 'Buyers are more likely to purchase more of the same........',
+      userDescription:
+          'Buyers are more likely to purchase more of the same........',
       time: '9:38 am',
       imageUrl: 'assets/images/chatslistprofilepic2.png',
-    ),ChatsList(
+    ),
+    ChatsList(
       userName: 'John doe',
-      userDescription: 'Buyers are more likely to purchase more of the same........',
+      userDescription:
+          'Buyers are more likely to purchase more of the same........',
       time: '9:38 am',
       imageUrl: 'assets/images/chatslistprofilepic1.png',
     ),
     ChatsList(
       userName: 'John doe',
-      userDescription: 'Buyers are more likely to purchase more of the same........',
+      userDescription:
+          'Buyers are more likely to purchase more of the same........',
       time: '9:38 am',
       imageUrl: 'assets/images/chatslistprofilepic2.png',
-    ),ChatsList(
+    ),
+    ChatsList(
       userName: 'John doe',
-      userDescription: 'Buyers are more likely to purchase more of the same........',
+      userDescription:
+          'Buyers are more likely to purchase more of the same........',
       time: '9:38 am',
       imageUrl: 'assets/images/chatslistprofilepic1.png',
     ),
     ChatsList(
       userName: 'John doe',
-      userDescription: 'Buyers are more likely to purchase more of the same........',
+      userDescription:
+          'Buyers are more likely to purchase more of the same........',
       time: '9:38 am',
       imageUrl: 'assets/images/chatslistprofilepic2.png',
-    ),ChatsList(
+    ),
+    ChatsList(
       userName: 'John doe',
-      userDescription: 'Buyers are more likely to purchase more of the same........',
+      userDescription:
+          'Buyers are more likely to purchase more of the same........',
       time: '9:38 am',
       imageUrl: 'assets/images/chatslistprofilepic1.png',
     ),
     ChatsList(
       userName: 'John doe',
-      userDescription: 'Buyers are more likely to purchase more of the same........',
+      userDescription:
+          'Buyers are more likely to purchase more of the same........',
       time: '9:38 am',
       imageUrl: 'assets/images/chatslistprofilepic2.png',
     ),
@@ -516,39 +516,189 @@ class HomeGuestController extends GetxController {
     chatslist.removeAt(index);
   }
 
-
-  /////////////payment method add card screen favourite logic 
- RxBool paymentmethodaddcardfavouriteicon = false.obs; 
-    void updatepaymentmethodaddcardfavouriteicon() {
-    paymentmethodaddcardfavouriteicon.value = !paymentmethodaddcardfavouriteicon.value;
+  /////////////payment method add card screen favourite logic
+  RxBool paymentmethodaddcardfavouriteicon = false.obs;
+  void updatepaymentmethodaddcardfavouriteicon() {
+    paymentmethodaddcardfavouriteicon.value =
+        !paymentmethodaddcardfavouriteicon.value;
   }
+
   //////////addnew card payment method container color logic
-   var addnewcardpaymentmethod = 0.obs;
+  var addnewcardpaymentmethod = 0.obs;
 
   void updateaddnewcardpaymentmethod(int index) {
     addnewcardpaymentmethod.value = index;
   }
 
-
-
-
   ////addnewcard payment method expirydate
 
- var expirydateaddnewcardpaymentmethod = Rxn<DateTime>();
+  var expirydateaddnewcardpaymentmethod = Rxn<DateTime>();
 
   void updateexpirydateaddnewcardpaymentmethod(DateTime date) {
     expirydateaddnewcardpaymentmethod.value = date;
   }
 
-
-
 /////////////////addnewcard remeber this card for future orders
 
+  RxBool remeberthiscardforfutureordersaddnewcard = false.obs;
 
+  updateremeberthiscardforfutureordersaddnewcard(bool value) {
+    remeberthiscardforfutureordersaddnewcard.value = value;
+  }
 
-RxBool remeberthiscardforfutureordersaddnewcard = false.obs;
+  ///////////seller dashboard months dropdown list
+  var usertodayspendingselectedmonth = "January".obs;
+  final List<String> selectmonthslist = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+  ];
 
-updateremeberthiscardforfutureordersaddnewcard(bool value){
-  remeberthiscardforfutureordersaddnewcard.value = value;
-}
+  var useritempurchaseselectedmonth = "January".obs;
+
+//////////USER ORDER HISTORY
+  ////////////////USER order history container selection logic
+  RxInt isuserselectedOrdercount = 1.obs;
+
+  void setuserSelectedOrdercount(int orderIndex) {
+    isuserselectedOrdercount.value = orderIndex;
+  }
+///////////user order history active orders list
+
+  List<Map<String, dynamic>> useractiveorderslist = [
+    {
+      "orderid": "Order #: 15s5d8e1",
+      "image": "assets/images/orderhistoryproductimage1.png",
+      "productname":
+          'Originals Gamepad Edition Men\'s Stan Cream  US 7 #GX6394',
+      "orderstatus": 'Pending'
+    },
+    {
+      "orderid": "Order #: 15s5d8e1",
+      "image": "assets/images/orderhistoryproductimage2.png",
+      "productname":
+          'Originals Gamepad Edition Men\'s Stan Cream  US 7 #GX6394',
+      "orderstatus": 'Pending'
+    },
+    {
+      "orderid": "Order #: 15s5d8e1",
+      "image": "assets/images/orderhistoryproductimage3.png",
+      "productname":
+          'Originals Gamepad Edition Men\'s Stan Cream  US 7 #GX6394',
+      "orderstatus": 'Pending'
+    },
+    {
+      "orderid": "Order #: 15s5d8e1",
+      "image": "assets/images/orderhistoryproductimage1.png",
+      "productname":
+          'Originals Gamepad Edition Men\'s Stan Cream  US 7 #GX6394',
+      "orderstatus": 'Pending'
+    },
+    {
+      "orderid": "Order #: 15s5d8e1",
+      "image": "assets/images/orderhistoryproductimage2.png",
+      "productname":
+          'Originals Gamepad Edition Men\'s Stan Cream  US 7 #GX6394',
+      "orderstatus": 'Pending'
+    },
+    {
+      "orderid": "Order #: 15s5d8e1",
+      "image": "assets/images/orderhistoryproductimage3.png",
+      "productname":
+          'Originals Gamepad Edition Men\'s Stan Cream  US 7 #GX6394',
+      "orderstatus": 'Pending'
+    },
+  ];
+
+//////////user orderhistory completed orders list
+  List<Map<String, dynamic>> usercompletedorderslist = [
+    {
+      "orderid": "Order #: 15s5d8e1",
+      "image": "assets/images/orderhistoryproductimage1.png",
+      "productname":
+          'Originals Gamepad Edition Men\'s Stan Cream  US 7 #GX6394',
+      "orderstatus": 'Delivered'
+    },
+    {
+      "orderid": "Order #: 15s5d8e1",
+      "image": "assets/images/orderhistoryproductimage2.png",
+      "productname":
+          'Originals Gamepad Edition Men\'s Stan Cream  US 7 #GX6394',
+      "orderstatus": 'Delivered'
+    },
+    {
+      "orderid": "Order #: 15s5d8e1",
+      "image": "assets/images/orderhistoryproductimage3.png",
+      "productname":
+          'Originals Gamepad Edition Men\'s Stan Cream  US 7 #GX6394',
+      "orderstatus": 'Delivered'
+    },
+  ];
+
+//////////user orderhistory refunded orders list
+  List<Map<String, dynamic>> userrefundorderslist = [
+    {
+      "orderid": "Order #: 15s5d8e1",
+      "image": "assets/images/orderhistoryproductimage1.png",
+      "productname":
+          'Originals Gamepad Edition Men\'s Stan Cream  US 7 #GX6394',
+      "orderstatus": 'Delivered'
+    },
+    {
+      "orderid": "Order #: 15s5d8e1",
+      "image": "assets/images/orderhistoryproductimage2.png",
+      "productname":
+          'Originals Gamepad Edition Men\'s Stan Cream  US 7 #GX6394',
+      "orderstatus": 'Delivered'
+    },
+    {
+      "orderid": "Order #: 15s5d8e1",
+      "image": "assets/images/orderhistoryproductimage3.png",
+      "productname":
+          'Originals Gamepad Edition Men\'s Stan Cream  US 7 #GX6394',
+      "orderstatus": 'Delivered'
+    },
+    {
+      "orderid": "Order #: 15s5d8e1",
+      "image": "assets/images/orderhistoryproductimage1.png",
+      "productname":
+          'Originals Gamepad Edition Men\'s Stan Cream  US 7 #GX6394',
+      "orderstatus": 'Delivered'
+    },
+  ];
+
+  // user orderhistory orderslist show logic
+  List<Map<String, dynamic>> getSelecteduserOrderList() {
+    switch (isuserselectedOrdercount.value) {
+      case 1:
+        return useractiveorderslist;
+      case 2:
+        return usercompletedorderslist;
+      case 3:
+        return userrefundorderslist;
+      default:
+        return useractiveorderslist;
+    }
+  }
+
+// user orderhistory viewdetails button logic
+  ontapuserorderhistoryviewdetailsbutton() {
+    switch (isuserselectedOrdercount.value) {
+      case 1:
+        return RouteConstants.useractiveorderdetails;
+      case 2:
+        return RouteConstants.usercompletedorderdetails;
+      case 3:
+        return RouteConstants.userrefundorderdetails;
+    }
+  }
 }
